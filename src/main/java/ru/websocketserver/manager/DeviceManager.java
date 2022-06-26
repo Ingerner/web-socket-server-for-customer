@@ -26,7 +26,14 @@ public class DeviceManager {
         return deviceBySessionId.get(sessionId);
     }
 
-    public Optional<Device> getByMac(@NonNull String mac) {
+    public Device getByMac(@NonNull String mac) {
+        if (!deviceByMac.containsKey(mac)) {
+            throw new ProcessException(DEVICE_DOES_NOT_EXIST);
+        }
+        return deviceByMac.get(mac);
+    }
+
+    public Optional<Device> getByMacOfOptional(@NonNull String mac) {
         return Optional.ofNullable(
                 deviceByMac.get(mac)
         );

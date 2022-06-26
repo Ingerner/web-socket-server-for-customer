@@ -1,6 +1,5 @@
 package ru.websocketserver.service.message;
 
-import ch.qos.logback.core.joran.conditional.IfAction;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -98,16 +97,18 @@ public class IamMessageHandler implements MessageHandler {
         List<String> macPanels = person.getPanels();
         List<String> notFoundDevices = new ArrayList<>();
         for (String mac : macPanels) {
-            Optional<Device> optionalDevice = deviceManager.getByMac(mac);
+            Optional<Device> optionalDevice = deviceManager.getByMacOfOptional(mac);
             if (optionalDevice.isPresent()) {
                 Device device = optionalDevice.get();
-                DataOutgoing outgoingMessage = DataOutgoing.builder()
-                        .deviceMac(device.getMac())
-                        .temp(device.getTemp())
-                        .backlight(device.getBacklight())
-                        .workingHours(device.getWorkingHours())
-                        .build();
-                person.sendMessage(outgoingMessage);
+                if (!device.isEmptyData()) {
+                    DataOutgoing outgoingMessage = DataOutgoing.builder()
+                            .deviceMac(device.getMac())
+                            .temp(device.getTemp())
+                            .backlight(device.getBacklight())
+                            .workingHours(device.getWorkingHours())
+                            .build();
+                    person.sendMessage(outgoingMessage);
+                }
             } else {
                 notFoundDevices.add(mac);
             }

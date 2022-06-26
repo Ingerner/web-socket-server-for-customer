@@ -42,4 +42,8 @@ public class PersonManager {
         }
     }
 
+    public boolean isRegisteredBySessionId(@NonNull String sessionId) {
+        return personsBySessionId.containsKey(sessionId);
+    }
+
 }
