@@ -112,9 +112,11 @@ public class IamMessageHandler implements MessageHandler {
                 notFoundDevices.add(mac);
             }
         }
-        throw new ProcessException(
-                MessageFormat.format(ERROR_SUBSCRIBING_DEVICE, notFoundDevices)
-        );
+        if (!notFoundDevices.isEmpty()) {
+            throw new ProcessException(
+                    MessageFormat.format(ERROR_SUBSCRIBING_DEVICE, notFoundDevices)
+            );
+        }
     }
 
 }

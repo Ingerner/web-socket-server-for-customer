@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static ru.websocketserver.util.ErrorMessage.PERSON_DOES_NOT_EXIST;
+import static ru.websocketserver.util.ErrorMessage.PERSON_WAS_REGISTERED;
 
 @Service
 @RequiredArgsConstructor
@@ -27,6 +28,9 @@ public class PersonManager {
 
     public void register(@NonNull Person person) {
         String sessionId = person.getSession().getId();
+        if (personsBySessionId.containsKey(sessionId)) {
+            throw new ProcessException(PERSON_WAS_REGISTERED);
+        }
         personsBySessionId.put(sessionId, person);
         subscribeManager.subscribe(person);
     }

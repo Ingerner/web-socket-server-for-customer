@@ -5,12 +5,13 @@ import org.springframework.stereotype.Service;
 import ru.websocketserver.exception.ProcessException;
 import ru.websocketserver.service.Device;
 
-import javax.swing.*;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static ru.websocketserver.util.ErrorMessage.DEVICE_DOES_NOT_EXIST;
+import static ru.websocketserver.util.ErrorMessage.DEVICE_WITH_MAC_ADDRESS_WAS_REGISTERED;
+import static ru.websocketserver.util.ErrorMessage.DEVICE_WITH_SESSION_WAS_REGISTERED;
 
 @Service
 public class DeviceManager {
@@ -33,6 +34,13 @@ public class DeviceManager {
 
     public void register(@NonNull Device device) {
         String sessionId = device.getSession().getId();
+        if (deviceBySessionId.containsKey(sessionId)) {
+            throw new ProcessException(DEVICE_WITH_SESSION_WAS_REGISTERED);
+        }
+        if (deviceByMac.containsKey(device.getMac())) {
+            throw new ProcessException(DEVICE_WITH_MAC_ADDRESS_WAS_REGISTERED);
+        }
+
         deviceBySessionId.put(sessionId, device);
         deviceByMac.put(device.getMac(), device);
     }
