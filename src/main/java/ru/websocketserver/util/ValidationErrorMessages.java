@@ -16,5 +16,10 @@ public final class ValidationErrorMessages {
     public static final String I_AM_PANEL_PANEL_NOT_ARRAY_FIELD_TYPE = "Для клиента с идентификатором 0, поле panel должно быть массивом.";
     public static final String I_AM_PANEL_PANEL_NOT_PRIMITIVE_FIELD_TYPE = "Для клиента с идентификатором 1, поле panel должно быть строкой.";
 
+    public static final String DATA_TEMP_NOT_NULL = "Поле \"temp\" не может быть пустым.";
+    public static final String DATA_BACKLIGHT_NOT_NULL = "Поле \"backlight\" не может быть пустым";
+    public static final String DATA_VOLUME_NOT_NULL = "Поле \"volume\" не может быть пустым";
+    public static final String DATA_WORKING_HOURS_NOT_NULL = "Поле \"workingHours\" не может быть пустым";
+
 }
 

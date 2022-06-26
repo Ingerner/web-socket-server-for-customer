@@ -1,5 +1,6 @@
 package ru.websocketserver.service.message;
 
+import ch.qos.logback.core.joran.conditional.IfAction;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -10,12 +11,20 @@ import org.springframework.web.socket.WebSocketSession;
 import ru.websocketserver.domain.incoming.Iam.IamDeviceMessage;
 import ru.websocketserver.domain.incoming.Iam.IamPersonMessage;
 import ru.websocketserver.domain.incoming.IamMessage;
+import ru.websocketserver.domain.outgoing.DataOutgoing;
 import ru.websocketserver.exception.MessageException;
+import ru.websocketserver.exception.ProcessException;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.manager.PersonManager;
 import ru.websocketserver.service.Device;
 import ru.websocketserver.service.Person;
 
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import static ru.websocketserver.util.ErrorMessage.ERROR_SUBSCRIBING_DEVICE;
 import static ru.websocketserver.util.MessageId.I_AM;
 import static ru.websocketserver.util.ValidationErrorMessages.I_AM_PANEL_PANEL_NOT_ARRAY_FIELD_TYPE;
 import static ru.websocketserver.util.ValidationErrorMessages.I_AM_PANEL_PANEL_NOT_PRIMITIVE_FIELD_TYPE;
@@ -45,7 +54,8 @@ public class IamMessageHandler implements MessageHandler {
             validatePanelFieldForPerson(panelField);
             IamPersonMessage personMessage = gson.fromJson(messagePayload, IamPersonMessage.class);
             validateReceivedMessage(personMessage);
-            registerPerson(session, personMessage);
+            Person person = registerPerson(session, personMessage);
+            sendAllSubscribedDeviceDataToPerson(person);
         }
     }
 
@@ -66,20 +76,45 @@ public class IamMessageHandler implements MessageHandler {
         }
     }
 
-    private void registerPerson(WebSocketSession session, IamPersonMessage message) {
+    private Person registerPerson(WebSocketSession session, IamPersonMessage message) {
         Person person = Person.builder()
                 .session(session)
                 .panels(message.getPanel())
                 .build();
         personManager.register(person);
+        return person;
     }
 
-    private void registerDevice(WebSocketSession session, IamDeviceMessage message) {
+    private Device registerDevice(WebSocketSession session, IamDeviceMessage message) {
         Device device = Device.builder()
                 .mac(message.getPanel())
                 .session(session)
                 .build();
         deviceManager.register(device);
+        return device;
+    }
+
+    private void sendAllSubscribedDeviceDataToPerson(Person person) {
+        List<String> macPanels = person.getPanels();
+        List<String> notFoundDevices = new ArrayList<>();
+        for (String mac : macPanels) {
+            Optional<Device> optionalDevice = deviceManager.getByMac(mac);
+            if (optionalDevice.isPresent()) {
+                Device device = optionalDevice.get();
+                DataOutgoing outgoingMessage = DataOutgoing.builder()
+                        .deviceMac(device.getMac())
+                        .temp(device.getTemp())
+                        .backlight(device.getBacklight())
+                        .workingHours(device.getWorkingHours())
+                        .build();
+                person.sendMessage(outgoingMessage);
+            } else {
+                notFoundDevices.add(mac);
+            }
+        }
+        throw new ProcessException(
+                MessageFormat.format(ERROR_SUBSCRIBING_DEVICE, notFoundDevices)
+        );
     }
 
 }

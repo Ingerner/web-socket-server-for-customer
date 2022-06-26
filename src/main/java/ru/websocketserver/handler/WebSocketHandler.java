@@ -72,7 +72,6 @@ public class WebSocketHandler extends TextWebSocketHandler {
 
     private void sendErrorResponse(WebSocketSession session, String message) {
         Error error = new Error();
-        error.setMessageId(ERROR);
         error.setError(message);
 
         TextMessage json = new TextMessage(gson.toJson(error));
