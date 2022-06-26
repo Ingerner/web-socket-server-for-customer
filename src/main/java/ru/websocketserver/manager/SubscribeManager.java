@@ -27,8 +27,10 @@ public class SubscribeManager {
     }
 
     public void sendAllMessageDeviceSubscribers(String macDevice, Message message) {
-        List<Person> subscribers = personsByMacDevice.get(macDevice).values().stream().toList();
-        subscribers.forEach(person -> person.sendMessage(message));
+        if (personsByMacDevice.containsKey(macDevice)) {
+            List<Person> subscribers = personsByMacDevice.get(macDevice).values().stream().toList();
+            subscribers.forEach(person -> person.sendMessage(message));
+        }
     }
 
     private void subscribePersonOnDevice(String mac, Person person) {

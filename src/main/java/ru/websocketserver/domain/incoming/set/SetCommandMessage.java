@@ -5,6 +5,5 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SetReboot extends Set {
-
+public class SetCommandMessage extends Set {
 }
