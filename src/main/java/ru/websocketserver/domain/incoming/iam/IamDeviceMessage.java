@@ -1,8 +1,7 @@
-package ru.websocketserver.domain.incoming.Iam;
+package ru.websocketserver.domain.incoming.iam;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.websocketserver.domain.incoming.IamMessage;
 
 import javax.validation.constraints.NotEmpty;
 

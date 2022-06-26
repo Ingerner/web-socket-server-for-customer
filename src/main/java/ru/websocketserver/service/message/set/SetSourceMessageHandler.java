@@ -2,6 +2,7 @@ package ru.websocketserver.service.message.set;
 
 import org.springframework.stereotype.Service;
 import ru.websocketserver.manager.DeviceManager;
+import ru.websocketserver.manager.PersonManager;
 
 import static ru.websocketserver.util.MessageId.SET_SOURCE;
 
@@ -9,8 +10,8 @@ import static ru.websocketserver.util.MessageId.SET_SOURCE;
 public class SetSourceMessageHandler extends SetMessageHandler {
 
 
-    public SetSourceMessageHandler(DeviceManager deviceManager) {
-        super(deviceManager);
+    public SetSourceMessageHandler(DeviceManager deviceManager, PersonManager personManager) {
+        super(deviceManager, personManager);
     }
 
     @Override

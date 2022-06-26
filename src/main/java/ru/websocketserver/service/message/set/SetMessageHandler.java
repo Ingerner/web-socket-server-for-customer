@@ -27,7 +27,7 @@ public abstract class SetMessageHandler implements MessageHandler {
         String messagePayload = message.getPayload();
         SetSource setSourceMessage = gson.fromJson(messagePayload, SetSource.class);
         validateReceivedMessage(setSourceMessage);
-        Device device = deviceManager.getByMac(setSourceMessage.getMac());
+        Device device = deviceManager.getByMac(setSourceMessage.getPanel());
         device.sendMessage(setSourceMessage);
     }
 

@@ -1,4 +1,4 @@
-package ru.websocketserver.domain.incoming;
+package ru.websocketserver.domain.incoming.iam;
 
 import lombok.Getter;
 import lombok.Setter;
