@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
-import ru.websocketserver.domain.incoming.set.SetSource;
+import ru.websocketserver.domain.incoming.set.Set;
 import ru.websocketserver.exception.ProcessException;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.manager.PersonManager;
@@ -15,9 +15,11 @@ import static ru.websocketserver.util.ErrorMessage.PERSON_DOES_NOT_EXIST;
 import static ru.websocketserver.util.ValidationUtil.validateReceivedMessage;
 
 @RequiredArgsConstructor
-public abstract class SetMessageHandler implements MessageHandler {
+public abstract class SetMessageHandler<T extends Set> implements MessageHandler {
 
-    private final Gson gson = new Gson();
+    private static final Gson gson = new Gson();
+
+    private final Class<T> classMessage;
     private final DeviceManager deviceManager;
     private final PersonManager personManager;
 
@@ -25,7 +27,7 @@ public abstract class SetMessageHandler implements MessageHandler {
     public void handle(WebSocketSession session, TextMessage message) {
         checkPersonRegistration(session.getId());
         String messagePayload = message.getPayload();
-        SetSource setSourceMessage = gson.fromJson(messagePayload, SetSource.class);
+        T setSourceMessage = gson.fromJson(messagePayload, classMessage);
         validateReceivedMessage(setSourceMessage);
         Device device = deviceManager.getByMac(setSourceMessage.getPanel());
         device.sendMessage(setSourceMessage);
