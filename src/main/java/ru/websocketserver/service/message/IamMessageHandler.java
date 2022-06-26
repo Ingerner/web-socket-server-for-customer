@@ -7,10 +7,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
-import ru.websocketserver.domain.Message;
-import ru.websocketserver.domain.incoming.IamPanelMessage;
+import ru.websocketserver.domain.incoming.IamDeviceMessage;
+import ru.websocketserver.domain.incoming.IamMessage;
 import ru.websocketserver.domain.incoming.IamPersonMessage;
 import ru.websocketserver.exception.MessageException;
+import ru.websocketserver.manager.DeviceManager;
+import ru.websocketserver.manager.PersonManager;
+import ru.websocketserver.service.Device;
+import ru.websocketserver.service.Person;
 
 import static ru.websocketserver.util.MessageId.I_AM;
 import static ru.websocketserver.util.ValidationErrorMessages.I_AM_PANEL_PANEL_NOT_ARRAY_FIELD_TYPE;
@@ -22,23 +26,27 @@ import static ru.websocketserver.util.ValidationUtil.validateReceivedMessage;
 public class IamMessageHandler implements MessageHandler {
 
     private final Gson gson;
+    private final PersonManager personManager;
+    private final DeviceManager deviceManager;
 
     @Override
     public void handle(WebSocketSession session, TextMessage message) {
         String messagePayload = message.getPayload();
-        int clientId = gson.fromJson(messagePayload, JsonObject.class)
-                .get("id")
-                .getAsInt();
+        IamMessage iamMessage = gson.fromJson(messagePayload, IamMessage.class);
+        validateReceivedMessage(iamMessage);
+        int clientId = iamMessage.getId();
         JsonElement panelField = gson.fromJson(messagePayload, JsonObject.class).get("panel");
-        Message iamMessage;
         if (clientId == 0) {
             validatePanelFieldForPanel(panelField);
-            iamMessage = gson.fromJson(messagePayload, IamPanelMessage.class);
+            IamDeviceMessage deviceMessage = gson.fromJson(messagePayload, IamDeviceMessage.class);
+            validateReceivedMessage(deviceMessage);
+            registerDevice(session, deviceMessage);
         } else {
             validatePanelFieldForPerson(panelField);
-            iamMessage = gson.fromJson(messagePayload, IamPersonMessage.class);
+            IamPersonMessage personMessage = gson.fromJson(messagePayload, IamPersonMessage.class);
+            validateReceivedMessage(personMessage);
+            registerPerson(session, personMessage);
         }
-        validateReceivedMessage(iamMessage);
     }
 
     @Override
@@ -56,6 +64,22 @@ public class IamMessageHandler implements MessageHandler {
         if (!panelField.isJsonArray()) {
             throw new MessageException(I_AM_PANEL_PANEL_NOT_ARRAY_FIELD_TYPE);
         }
+    }
+
+    private void registerPerson(WebSocketSession session, IamPersonMessage message) {
+        Person person = Person.builder()
+                .session(session)
+                .panels(message.getPanel())
+                .build();
+        personManager.register(person);
+    }
+
+    private void registerDevice(WebSocketSession session, IamDeviceMessage message) {
+        Device device = Device.builder()
+                .mac(message.getPanel())
+                .session(session)
+                .build();
+        deviceManager.register(device);
     }
 
 }

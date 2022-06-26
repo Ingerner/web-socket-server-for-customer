@@ -1,5 +1,6 @@
 package ru.websocketserver.service;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.web.socket.WebSocketSession;
@@ -9,6 +10,7 @@ import java.io.IOException;
 
 @Getter
 @Setter
+@Builder
 public class Device implements Closeable {
 
     private String mac;
