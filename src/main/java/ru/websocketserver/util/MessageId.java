@@ -9,6 +9,7 @@ public final class MessageId {
     public static final String DATA = "Data";
 
     public static final String SET_SOURCE = "setSource";
+    public static final String SET_REBOOT = "setReboot";
 
     public static final String ERROR = "Error";
 

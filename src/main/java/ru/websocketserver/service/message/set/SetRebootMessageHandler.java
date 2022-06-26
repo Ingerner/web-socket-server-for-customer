@@ -4,17 +4,17 @@ import org.springframework.stereotype.Service;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.manager.PersonManager;
 
-import static ru.websocketserver.util.MessageId.SET_SOURCE;
+import static ru.websocketserver.util.MessageId.SET_REBOOT;
 
 @Service
-public class SetSourceMessageHandler extends SetMessageHandler {
+public class SetRebootMessageHandler extends SetMessageHandler {
 
-    public SetSourceMessageHandler(DeviceManager deviceManager, PersonManager personManager) {
+    public SetRebootMessageHandler(DeviceManager deviceManager, PersonManager personManager) {
         super(deviceManager, personManager);
     }
 
     @Override
     public String getMessageType() {
-        return SET_SOURCE;
+        return SET_REBOOT;
     }
 }
