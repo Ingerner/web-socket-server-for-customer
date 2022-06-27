@@ -1,4 +1,4 @@
-package ru.websocketserver.service.message.set;
+package ru.websocketserver.service.message;
 
 import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
@@ -9,7 +9,6 @@ import ru.websocketserver.exception.ProcessException;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.manager.PersonManager;
 import ru.websocketserver.service.Device;
-import ru.websocketserver.service.message.MessageHandler;
 
 import static ru.websocketserver.util.ErrorMessage.PERSON_DOES_NOT_EXIST;
 import static ru.websocketserver.util.ValidationUtil.validateReceivedMessage;
