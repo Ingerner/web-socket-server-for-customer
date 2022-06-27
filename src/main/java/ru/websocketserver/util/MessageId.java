@@ -25,6 +25,17 @@ public final class MessageId {
     public static final String SET_VOLUME_UP = "setVolumeUp";
     public static final String SET_VOLUME_DOWN = "setVolumeDown";
 
+    public static final String GET_SOURCE = "getSource";
+    public static final String GET_SLEEP = "getSleep";
+    public static final String GET_TIME_ALARM = "getTimeAlarm";
+    public static final String GET_AUTO_SOURCE_SWITCH = "getAutoSourceSwitch";
+    public static final String GET_BACKLIGHT = "getBacklight";
+    public static final String GET_BRIGHTNESS = "getBrightness";
+    public static final String GET_PICTURE_MODE = "getPictureMode";
+    public static final String GET_SATURATION = "getSaturation";
+    public static final String GET_SHARPNESS = "getSharpness";
+    public static final String GET_VOLUME = "getVolume";
+
     public static final String ERROR = "Error";
 
 }
