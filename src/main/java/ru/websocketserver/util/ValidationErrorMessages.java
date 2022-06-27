@@ -28,5 +28,9 @@ public final class ValidationErrorMessages {
     public static final String SET_TIME_ALARM_NOT_VALID_PATTERN = "Значение поля \"time\" не соотвествует шаблону времени YYYY:MM:DDThh:mm:ss, или указаны не верные значения даты или времени.";
     public static final String SET_VALUE_NOT_NULL = "Значение поле \"value\" не может быть пустым.";
     public static final String SET_VALUE_NOT_VALID_VALUE = "Значение поле \"value\" должно быть от 0 до 100.";
-}
 
+    public static final String RPL_MESSAGE_USER_SESSION_EMPTY_VALUE = "Поле \"userSession\" не может быть пустым.";
+    public static final String RPL_SOURCE_VALUE_NOT_NULL = "Поле \"value\" не может быть пустым.";
+    public static final String PRL_SOURCE_VALUE_MIN_VALUE = "Поле \"value\" не может быть меньше 0.";
+
+}

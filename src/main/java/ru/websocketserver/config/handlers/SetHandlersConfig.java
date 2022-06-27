@@ -1,11 +1,11 @@
-package ru.websocketserver.config;
+package ru.websocketserver.config.handlers;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ru.websocketserver.domain.common.SetCommandMessage;
-import ru.websocketserver.domain.common.SetSourceMessage;
-import ru.websocketserver.domain.common.SetTimeAlarmMessage;
-import ru.websocketserver.domain.common.SetValueMessage;
+import ru.websocketserver.domain.common.set.SetCommandMessage;
+import ru.websocketserver.domain.common.set.SetSourceMessage;
+import ru.websocketserver.domain.common.set.SetTimeAlarmMessage;
+import ru.websocketserver.domain.common.set.SetValueMessage;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.manager.PersonManager;
 import ru.websocketserver.service.message.MessageHandler;

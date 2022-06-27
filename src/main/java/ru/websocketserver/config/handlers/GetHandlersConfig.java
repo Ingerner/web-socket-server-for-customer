@@ -1,4 +1,4 @@
-package ru.websocketserver.config;
+package ru.websocketserver.config.handlers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

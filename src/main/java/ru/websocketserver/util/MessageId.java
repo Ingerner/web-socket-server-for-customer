@@ -36,6 +36,8 @@ public final class MessageId {
     public static final String GET_SHARPNESS = "getSharpness";
     public static final String GET_VOLUME = "getVolume";
 
+    public static final String RPL_SOURCE = "rplSource";
+
     public static final String ERROR = "Error";
 
 }

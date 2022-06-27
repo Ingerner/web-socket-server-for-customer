@@ -60,4 +60,8 @@ public class DeviceManager {
         }
     }
 
+    public boolean isRegisteredBySessionId(@NonNull String sessionId) {
+        return deviceBySessionId.containsKey(sessionId);
+    }
+
 }

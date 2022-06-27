@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
-import ru.websocketserver.domain.common.SetMessage;
+import ru.websocketserver.domain.common.set.SetMessage;
 import ru.websocketserver.exception.ProcessException;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.manager.PersonManager;
