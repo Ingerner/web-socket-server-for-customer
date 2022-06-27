@@ -13,8 +13,10 @@ import static ru.websocketserver.util.ValidationErrorMessages.SET_TIME_ALARM_NOT
 @Setter
 public class SetTimeAlarmMessage extends SetMessage {
 
+    private static final String DATE_VALIDATION_REGEX = "^\\d\\d\\d\\d:((0\\d)|(1[0-2])):(([0-2]\\d)|(3[0-1]))T(([0-1]\\d)|(2[0-3])):[0-5]\\d:[0-5]\\d$";
+
     @NotEmpty(message = SET_TIME_ALARM_NOT_EMPTY_VALUE)
-    @Pattern(regexp = "^\\d\\d\\d\\d:((0\\d)|(1[0-2])):(([0-2]\\d)|(3[0-1]))T(([0-1]\\d)|(2[0-3])):[0-5]\\d:[0-5]\\d$", message = SET_TIME_ALARM_NOT_VALID_PATTERN)
+    @Pattern(regexp = DATE_VALIDATION_REGEX, message = SET_TIME_ALARM_NOT_VALID_PATTERN)
     private String time;
 
 }
