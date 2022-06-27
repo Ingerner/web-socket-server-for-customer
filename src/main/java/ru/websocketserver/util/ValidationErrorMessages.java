@@ -23,7 +23,7 @@ public final class ValidationErrorMessages {
 
     public static final String SET_PANEL_NOT_EMPTY = "Поле \"panel\" не может быть пустым.";
     public static final String SET_SOURCE_SOURCE_NOT_NULL = "Поле \"source\" не может быть пустым.";
-    public static final String SET_SOURCE_SOURCE_NOT_VALID_VALUE = "Поле \"source\" должно принимать значение 0 или 1.";
+    public static final String SET_SOURCE_SOURCE_NOT_VALID_VALUE = "Поле \"source\" должно принимать значение меньше 0.";
     public static final String SET_TIME_ALARM_NOT_EMPTY_VALUE = "Значение поля \"time\" не может быть пустым.";
     public static final String SET_TIME_ALARM_NOT_VALID_PATTERN = "Значение поля \"time\" не соотвествует шаблону времени YYYY:MM:DDThh:mm:ss, или указаны не верные значения даты или времени.";
     public static final String SET_VALUE_NOT_NULL = "Значение поле \"value\" не может быть пустым.";

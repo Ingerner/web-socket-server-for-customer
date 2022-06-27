@@ -3,7 +3,6 @@ package ru.websocketserver.domain.common;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -16,7 +15,6 @@ public class SetSourceMessage extends SetMessage {
 
     @NotNull(message = SET_SOURCE_SOURCE_NOT_NULL)
     @Min(value = 0, message = SET_SOURCE_SOURCE_NOT_VALID_VALUE)
-    @Max(value = 1, message = SET_SOURCE_SOURCE_NOT_VALID_VALUE)
     private Integer source;
 
 }
