@@ -17,13 +17,15 @@ public final class ValidationErrorMessages {
     public static final String I_AM_PANEL_PANEL_NOT_PRIMITIVE_FIELD_TYPE = "Для клиента с идентификатором 1, поле panel должно быть строкой.";
 
     public static final String DATA_TEMP_NOT_NULL = "Поле \"temp\" не может быть пустым.";
-    public static final String DATA_BACKLIGHT_NOT_NULL = "Поле \"backlight\" не может быть пустым";
-    public static final String DATA_VOLUME_NOT_NULL = "Поле \"volume\" не может быть пустым";
-    public static final String DATA_WORKING_HOURS_NOT_NULL = "Поле \"workingHours\" не может быть пустым";
+    public static final String DATA_BACKLIGHT_NOT_NULL = "Поле \"backlight\" не может быть пустым.";
+    public static final String DATA_VOLUME_NOT_NULL = "Поле \"volume\" не может быть пустым.";
+    public static final String DATA_WORKING_HOURS_NOT_NULL = "Поле \"workingHours\" не может быть пустым.";
 
-    public static final String SET_SOURCE_MAC_NOT_EMPTY = "Поле \"panel\" не может быть пустым";
-    public static final String SET_SOURCE_SOURCE_NOT_NULL = "Поле \"source\" не может быть пустым";
-    public static final String SET_SOURCE_SOURCE_NOT_VALID_VALUE = "Поле \"source\" должно принимать значение 0 или 1";
+    public static final String SET_PANEL_NOT_EMPTY = "Поле \"panel\" не может быть пустым.";
+    public static final String SET_SOURCE_SOURCE_NOT_NULL = "Поле \"source\" не может быть пустым.";
+    public static final String SET_SOURCE_SOURCE_NOT_VALID_VALUE = "Поле \"source\" должно принимать значение 0 или 1.";
+    public static final String SET_TIME_ALARM_NOT_EMPTY_VALUE = "Значение поля \"time\" не может быть пустым.";
+    public static final String SET_TIME_ALARM_NOT_VALID_PATTERN = "Значение поля \"time\" не соотвествует шаблону времени YYYY:MM:DDThh:mm:ss, или указаны не верные значения даты или времени.";
 
 }
 

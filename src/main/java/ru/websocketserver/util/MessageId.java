@@ -13,6 +13,7 @@ public final class MessageId {
     public static final String SET_SHUTDOWN = "setShutdown";
     public static final String SET_SLEEP = "setSleep";
     public static final String SET_WAKEUP = "setWakeUp";
+    public static final String SET_TIME_ALARM = "setTimeAlarm";
 
     public static final String ERROR = "Error";
 
