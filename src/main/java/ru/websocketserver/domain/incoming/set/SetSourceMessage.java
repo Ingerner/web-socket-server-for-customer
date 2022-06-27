@@ -12,7 +12,7 @@ import static ru.websocketserver.util.ValidationErrorMessages.SET_SOURCE_SOURCE_
 
 @Getter
 @Setter
-public class SetSource extends Set {
+public class SetSourceMessage extends SetMessage {
 
     @NotNull(message = SET_SOURCE_SOURCE_NOT_NULL)
     @Min(value = 0, message = SET_SOURCE_SOURCE_NOT_VALID_VALUE)

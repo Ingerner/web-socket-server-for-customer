@@ -10,7 +10,7 @@ import static ru.websocketserver.util.ValidationErrorMessages.SET_SOURCE_MAC_NOT
 
 @Getter
 @Setter
-public abstract class Set extends Message {
+public abstract class SetMessage extends Message {
 
     @NotEmpty(message = SET_SOURCE_MAC_NOT_EMPTY)
     private String panel;
