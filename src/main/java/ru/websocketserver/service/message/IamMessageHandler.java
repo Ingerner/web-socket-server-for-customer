@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static ru.websocketserver.util.ErrorMessage.CLIENT_WITH_CURRENT_SESSION_REGISTERED_AS_DEVICE;
+import static ru.websocketserver.util.ErrorMessage.CLIENT_WITH_CURRENT_SESSION_REGISTERED_AS_PERSON;
 import static ru.websocketserver.util.ErrorMessage.ERROR_SUBSCRIBING_DEVICE;
 import static ru.websocketserver.util.MessageId.I_AM;
 import static ru.websocketserver.util.ValidationErrorMessages.I_AM_PANEL_PANEL_NOT_ARRAY_FIELD_TYPE;
@@ -43,24 +45,39 @@ public class IamMessageHandler implements MessageHandler {
         IamMessage iamMessage = gson.fromJson(messagePayload, IamMessage.class);
         validateReceivedMessage(iamMessage);
         int clientId = iamMessage.getId();
-        JsonElement panelField = gson.fromJson(messagePayload, JsonObject.class).get("panel");
         if (clientId == 0) {
-            validatePanelFieldForPanel(panelField);
-            IamDeviceMessage deviceMessage = gson.fromJson(messagePayload, IamDeviceMessage.class);
-            validateReceivedMessage(deviceMessage);
-            registerDevice(session, deviceMessage);
+            addDevice(session, messagePayload);
         } else {
-            validatePanelFieldForPerson(panelField);
-            IamPersonMessage personMessage = gson.fromJson(messagePayload, IamPersonMessage.class);
-            validateReceivedMessage(personMessage);
-            Person person = registerPerson(session, personMessage);
-            sendAllSubscribedDeviceDataToPerson(person);
+            addPerson(session, messagePayload);
         }
     }
 
     @Override
     public String getMessageType() {
         return I_AM;
+    }
+
+    private void addPerson(WebSocketSession session, String messagePayload) {
+        if (deviceManager.isRegisteredBySessionId(session.getId())) {
+            throw new ProcessException(CLIENT_WITH_CURRENT_SESSION_REGISTERED_AS_DEVICE);
+        }
+        JsonElement panelField = gson.fromJson(messagePayload, JsonObject.class).get("panel");
+        validatePanelFieldForPerson(panelField);
+        IamPersonMessage personMessage = gson.fromJson(messagePayload, IamPersonMessage.class);
+        validateReceivedMessage(personMessage);
+        Person person = registerPerson(session, personMessage);
+        sendAllSubscribedDeviceDataToPerson(person);
+    }
+
+    private void addDevice(WebSocketSession session, String messagePayload) {
+        if (personManager.isRegisteredBySessionId(session.getId())) {
+            throw new ProcessException(CLIENT_WITH_CURRENT_SESSION_REGISTERED_AS_PERSON);
+        }
+        JsonElement panelField = gson.fromJson(messagePayload, JsonObject.class).get("panel");
+        validatePanelFieldForPanel(panelField);
+        IamDeviceMessage deviceMessage = gson.fromJson(messagePayload, IamDeviceMessage.class);
+        validateReceivedMessage(deviceMessage);
+        registerDevice(session, deviceMessage);
     }
 
     private void validatePanelFieldForPanel(JsonElement panelField) {

@@ -11,5 +11,7 @@ public final class ErrorMessage {
     public static final String PERSON_WAS_REGISTERED = "Пользователь с данной сессией уже зарегистрирован";
     public static final String DEVICE_WITH_SESSION_WAS_REGISTERED = "Устройство с данной сессией уже зарегистрировано";
     public static final String DEVICE_WITH_MAC_ADDRESS_WAS_REGISTERED = "Устройство с MAC-адресом уже зарегистрировано";
+    public static final String CLIENT_WITH_CURRENT_SESSION_REGISTERED_AS_DEVICE = "Клиент с текущей сессией уже зарегистрирован как Устройство";
+    public static final String CLIENT_WITH_CURRENT_SESSION_REGISTERED_AS_PERSON = "Клиент с текущей сессией уже зарегистрирован как Пользователь";
 
 }
