@@ -1,4 +1,4 @@
-package ru.websocketserver.domain.common.set;
+package ru.websocketserver.domain.common.rpl;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +11,7 @@ import static ru.websocketserver.util.ValidationErrorMessages.TIME_ALARM_NOT_VAL
 
 @Getter
 @Setter
-public class SetTimeAlarmMessage extends SetMessage {
+public class RplTimeAlarmMessage extends RplMessage {
 
     private static final String DATE_VALIDATION_REGEX = "^\\d\\d\\d\\d:((0\\d)|(1[0-2])):(([0-2]\\d)|(3[0-1]))T(([0-1]\\d)|(2[0-3])):[0-5]\\d:[0-5]\\d$";
 

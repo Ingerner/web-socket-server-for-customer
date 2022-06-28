@@ -37,6 +37,15 @@ public final class MessageId {
     public static final String GET_VOLUME = "getVolume";
 
     public static final String RPL_SOURCE = "rplSource";
+    public static final String RPL_SLEEP = "rplSleep";
+    public static final String RPL_TIME_ALARM = "rplTimeAlarm";
+    public static final String RPL_AUTO_SOURCE_SWITCH = "rplAutoSourceSwitch";
+    public static final String RPL_BACKLIGHT = "rplBacklight";
+    public static final String RPL_BRIGHTNESS = "rplBrightness";
+    public static final String RPL_PICTURE_MODE = "rplPictureMode";
+    public static final String RPL_SATURATION = "rplSaturation";
+    public static final String RPL_SHARPNESS = "rplSharpness";
+    public static final String RPL_VOLUME = "rplVolume";
 
     public static final String ERROR = "Error";
 

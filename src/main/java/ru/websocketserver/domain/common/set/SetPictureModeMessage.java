@@ -7,16 +7,17 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+import static ru.websocketserver.util.ValidationErrorMessages.MESSAGE_VALUE_MIN_VALUE;
+import static ru.websocketserver.util.ValidationErrorMessages.PICTURE_MODE_VALUE_MAX;
 import static ru.websocketserver.util.ValidationErrorMessages.VALUE_NOT_NULL;
-import static ru.websocketserver.util.ValidationErrorMessages.VALUE_NOT_VALID_VALUE;
 
 @Getter
 @Setter
-public class SetValueMessage extends SetMessage {
+public class SetPictureModeMessage extends SetMessage {
 
     @NotNull(message = VALUE_NOT_NULL)
-    @Min(value = 0, message = VALUE_NOT_VALID_VALUE)
-    @Max(value = 100, message = VALUE_NOT_VALID_VALUE)
+    @Min(value = 0, message = MESSAGE_VALUE_MIN_VALUE)
+    @Max(value = 10, message = PICTURE_MODE_VALUE_MAX)
     private Integer value;
 
 }

@@ -1,4 +1,4 @@
-package ru.websocketserver.domain.common.set;
+package ru.websocketserver.domain.common.rpl;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +12,7 @@ import static ru.websocketserver.util.ValidationErrorMessages.VALUE_NOT_VALID_VA
 
 @Getter
 @Setter
-public class SetValueMessage extends SetMessage {
+public class RplValueMessage extends RplMessage {
 
     @NotNull(message = VALUE_NOT_NULL)
     @Min(value = 0, message = VALUE_NOT_VALID_VALUE)
