@@ -65,4 +65,8 @@ public class DeviceManager {
         return deviceBySessionId.containsKey(sessionId);
     }
 
+    public boolean isRegisteredByMac(@NonNull String mac) {
+        return deviceByMac.containsKey(mac);
+    }
+
 }

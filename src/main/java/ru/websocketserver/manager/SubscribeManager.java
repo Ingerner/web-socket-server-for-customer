@@ -1,5 +1,6 @@
 package ru.websocketserver.manager;
 
+import lombok.NonNull;
 import org.springframework.stereotype.Service;
 import ru.websocketserver.domain.Message;
 import ru.websocketserver.service.Person;
@@ -42,6 +43,17 @@ public class SubscribeManager {
             personsByMacDevice.put(mac, subscribers);
         }
         subscribers.put(person.getSession().getId(), person);
+    }
+
+    public List<String> getEmptySubscriptionMac() {
+        return personsByMacDevice.entrySet().stream()
+                .filter(entry -> entry.getValue().isEmpty())
+                .map(Map.Entry::getKey)
+                .toList();
+    }
+
+    public void removeSubscription(@NonNull String key) {
+        personsByMacDevice.remove(key);
     }
 
 }
