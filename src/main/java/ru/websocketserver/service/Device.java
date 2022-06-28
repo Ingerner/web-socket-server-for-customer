@@ -50,9 +50,13 @@ public class Device implements Closeable {
     }
 
     @Override
-    public void close() throws IOException {
+    public void close() {
         if (session != null && session.isOpen()) {
-            session.close();
+            try {
+                session.close();
+            } catch (IOException e) {
+                log.error("Error closing Device session with id = {}", session.getId());
+            }
         }
     }
 

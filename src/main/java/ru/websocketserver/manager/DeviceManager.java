@@ -55,8 +55,9 @@ public class DeviceManager {
     public void deleteBySessionId(@NonNull String sessionId) {
         if (deviceBySessionId.containsKey(sessionId)) {
             Device device = deviceBySessionId.get(sessionId);
-            deviceBySessionId.remove(sessionId);
             deviceByMac.remove(device.getMac());
+            deviceBySessionId.remove(sessionId);
+            device.close();
         }
     }
 

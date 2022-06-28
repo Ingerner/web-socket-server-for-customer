@@ -36,9 +36,11 @@ public class PersonManager {
     }
 
     public void deleteBySessionId(@NonNull String sessionId) {
-        Person deletedPerson = personsBySessionId.remove(sessionId);
-        if (deletedPerson != null) {
-            subscribeManager.unsubscribePersonForAll(deletedPerson);
+        if (personsBySessionId.containsKey(sessionId)) {
+            Person removedPerson = personsBySessionId.get(sessionId);
+            subscribeManager.unsubscribePersonForAll(removedPerson);
+            personsBySessionId.remove(sessionId);
+            removedPerson.close();
         }
     }
 

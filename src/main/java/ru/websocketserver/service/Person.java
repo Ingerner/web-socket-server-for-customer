@@ -39,9 +39,13 @@ public class Person implements Closeable {
     }
 
     @Override
-    public void close() throws IOException {
+    public void close() {
         if (session != null && session.isOpen()) {
-            session.close();
+            try {
+                session.close();
+            } catch (IOException e) {
+                log.error("Error closing Person session with id = {}", session.getId());
+            }
         }
     }
 

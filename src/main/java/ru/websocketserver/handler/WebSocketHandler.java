@@ -10,6 +10,8 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 import ru.websocketserver.domain.Message;
 import ru.websocketserver.domain.outgoing.Error;
 import ru.websocketserver.exception.ValidationException;
+import ru.websocketserver.manager.DeviceManager;
+import ru.websocketserver.manager.PersonManager;
 import ru.websocketserver.service.message.MessageHandler;
 
 import java.io.IOException;
@@ -18,7 +20,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static ru.websocketserver.util.MessageId.ERROR;
 import static ru.websocketserver.util.ValidationErrorMessages.UNSUPPORTED_MESSAGE_ID;
 import static ru.websocketserver.util.ValidationUtil.validateReceivedMessage;
 
@@ -30,10 +31,15 @@ public class WebSocketHandler extends TextWebSocketHandler {
 
     private final Map<String, MessageHandler> handlers;
 
-    public WebSocketHandler(List<MessageHandler> handlers) {
+    private final PersonManager personManager;
+    private final DeviceManager deviceManager;
+
+    public WebSocketHandler(List<MessageHandler> handlers, PersonManager personManager, DeviceManager deviceManager) {
         this.handlers = handlers
                 .stream()
                 .collect(Collectors.toMap(MessageHandler::getMessageType, MessageHandler.class::cast));
+        this.personManager = personManager;
+        this.deviceManager = deviceManager;
     }
 
     @Override
@@ -67,7 +73,8 @@ public class WebSocketHandler extends TextWebSocketHandler {
 
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) {
-        log.info("closed");
+        personManager.deleteBySessionId(session.getId());
+        deviceManager.deleteBySessionId(session.getId());
     }
 
     private void sendErrorResponse(WebSocketSession session, String message) {
