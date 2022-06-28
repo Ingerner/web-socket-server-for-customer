@@ -3,6 +3,7 @@ package ru.websocketserver.config.handlers;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import ru.websocketserver.domain.common.set.SetCommandMessage;
+import ru.websocketserver.domain.common.set.SetPictureModeMessage;
 import ru.websocketserver.domain.common.set.SetSourceMessage;
 import ru.websocketserver.domain.common.set.SetTimeAlarmMessage;
 import ru.websocketserver.domain.common.set.SetValueMessage;
@@ -83,7 +84,7 @@ public class SetHandlersConfig {
 
     @Bean
     public MessageHandler setPictureModeMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new SetMessageHandler<>(SetCommandMessage.class, deviceManager, personManager, SET_PICTURE_MODE);
+        return new SetMessageHandler<>(SetPictureModeMessage.class, deviceManager, personManager, SET_PICTURE_MODE);
     }
 
     @Bean
