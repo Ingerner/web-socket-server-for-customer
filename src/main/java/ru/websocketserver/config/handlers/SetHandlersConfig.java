@@ -2,15 +2,15 @@ package ru.websocketserver.config.handlers;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ru.websocketserver.domain.common.set.SetCommandMessage;
-import ru.websocketserver.domain.common.set.SetPictureModeMessage;
-import ru.websocketserver.domain.common.set.SetSourceMessage;
-import ru.websocketserver.domain.common.set.SetTimeAlarmMessage;
-import ru.websocketserver.domain.common.set.SetValueMessage;
+import ru.websocketserver.domain.message.common.set.SetCommandMessage;
+import ru.websocketserver.domain.message.common.set.SetPictureModeMessage;
+import ru.websocketserver.domain.message.common.set.SetSourceMessage;
+import ru.websocketserver.domain.message.common.set.SetTimeAlarmMessage;
+import ru.websocketserver.domain.message.common.set.SetValueMessage;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.manager.PersonManager;
-import ru.websocketserver.service.message.MessageHandler;
-import ru.websocketserver.service.message.SetMessageHandler;
+import ru.websocketserver.service.handler.MessageHandler;
+import ru.websocketserver.service.handler.SetMessageHandler;
 
 import static ru.websocketserver.util.MessageId.SET_AUTO_SOURCE_SWITCH;
 import static ru.websocketserver.util.MessageId.SET_BACKLIGHT;

@@ -1,12 +1,11 @@
 package ru.websocketserver.config.handlers;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.manager.PersonManager;
-import ru.websocketserver.service.message.GetMessageHandler;
-import ru.websocketserver.service.message.MessageHandler;
+import ru.websocketserver.service.handler.GetMessageHandler;
+import ru.websocketserver.service.handler.MessageHandler;
 
 import static ru.websocketserver.util.MessageId.GET_AUTO_SOURCE_SWITCH;
 import static ru.websocketserver.util.MessageId.GET_BACKLIGHT;

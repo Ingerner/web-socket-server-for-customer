@@ -3,7 +3,7 @@ package ru.websocketserver.manager;
 import lombok.NonNull;
 import org.springframework.stereotype.Service;
 import ru.websocketserver.exception.ProcessException;
-import ru.websocketserver.service.Device;
+import ru.websocketserver.domain.Device;
 
 import java.util.Map;
 import java.util.Optional;

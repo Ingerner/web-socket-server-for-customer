@@ -2,15 +2,15 @@ package ru.websocketserver.config.handlers;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ru.websocketserver.domain.common.rpl.RplBoolValueMessage;
-import ru.websocketserver.domain.common.rpl.RplPictureModeMessage;
-import ru.websocketserver.domain.common.rpl.RplSourceMessage;
-import ru.websocketserver.domain.common.rpl.RplTimeAlarmMessage;
-import ru.websocketserver.domain.common.rpl.RplValueMessage;
+import ru.websocketserver.domain.message.common.rpl.RplBoolValueMessage;
+import ru.websocketserver.domain.message.common.rpl.RplPictureModeMessage;
+import ru.websocketserver.domain.message.common.rpl.RplSourceMessage;
+import ru.websocketserver.domain.message.common.rpl.RplTimeAlarmMessage;
+import ru.websocketserver.domain.message.common.rpl.RplValueMessage;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.manager.PersonManager;
-import ru.websocketserver.service.message.MessageHandler;
-import ru.websocketserver.service.message.RplMessageHandler;
+import ru.websocketserver.service.handler.MessageHandler;
+import ru.websocketserver.service.handler.RplMessageHandler;
 
 import static ru.websocketserver.util.MessageId.RPL_AUTO_SOURCE_SWITCH;
 import static ru.websocketserver.util.MessageId.RPL_BACKLIGHT;

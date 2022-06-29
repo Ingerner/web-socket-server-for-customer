@@ -2,8 +2,8 @@ package ru.websocketserver.manager;
 
 import lombok.NonNull;
 import org.springframework.stereotype.Service;
-import ru.websocketserver.domain.Message;
-import ru.websocketserver.service.Person;
+import ru.websocketserver.domain.message.Message;
+import ru.websocketserver.domain.Person;
 
 import java.util.List;
 import java.util.Map;

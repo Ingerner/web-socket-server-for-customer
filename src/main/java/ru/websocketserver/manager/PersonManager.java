@@ -4,7 +4,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.websocketserver.exception.ProcessException;
-import ru.websocketserver.service.Person;
+import ru.websocketserver.domain.Person;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

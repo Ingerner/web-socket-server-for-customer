@@ -1,7 +1,7 @@
 package ru.websocketserver.util;
 
 import lombok.experimental.UtilityClass;
-import ru.websocketserver.domain.Message;
+import ru.websocketserver.domain.message.Message;
 import ru.websocketserver.exception.ValidationException;
 
 import javax.validation.ConstraintViolation;

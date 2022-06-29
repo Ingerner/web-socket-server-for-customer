@@ -7,12 +7,12 @@ import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
-import ru.websocketserver.domain.Message;
-import ru.websocketserver.domain.outgoing.Error;
+import ru.websocketserver.domain.message.Message;
+import ru.websocketserver.domain.message.outgoing.Error;
 import ru.websocketserver.exception.ValidationException;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.manager.PersonManager;
-import ru.websocketserver.service.message.MessageHandler;
+import ru.websocketserver.service.handler.MessageHandler;
 
 import java.io.IOException;
 import java.text.MessageFormat;
