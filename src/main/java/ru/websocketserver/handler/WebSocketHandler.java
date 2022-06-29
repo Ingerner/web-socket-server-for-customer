@@ -10,6 +10,7 @@ import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 import ru.websocketserver.domain.message.Message;
 import ru.websocketserver.domain.message.outgoing.Error;
+import ru.websocketserver.exception.AppException;
 import ru.websocketserver.exception.ValidationException;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.manager.PersonManager;
@@ -19,9 +20,11 @@ import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import static ru.websocketserver.util.ErrorMessage.BAD_JSON_MESSAGE;
+import static ru.websocketserver.util.ErrorMessage.SERVER_ERROR;
 import static ru.websocketserver.util.ValidationErrorMessages.UNSUPPORTED_MESSAGE_ID;
 import static ru.websocketserver.util.ValidationUtil.validateReceivedMessage;
 
@@ -70,8 +73,12 @@ public class WebSocketHandler extends TextWebSocketHandler {
         } catch (ValidationException e) {
             String errors = String.join("\n", e.getErrors());
             sendErrorResponse(session, errors);
-        } catch (Exception e) {
+        } catch (AppException e) {
             sendErrorResponse(session, e.getMessage());
+        } catch (Exception e) {
+            String errorUuid = UUID.randomUUID().toString();
+            log.error("ERROR {}: ", errorUuid, e);
+            sendErrorResponse(session, MessageFormat.format(SERVER_ERROR, errorUuid));
         }
     }
 

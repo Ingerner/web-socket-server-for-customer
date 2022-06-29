@@ -1,6 +1,6 @@
 package ru.websocketserver.exception;
 
-public class ProcessException extends RuntimeException {
+public class ProcessException extends AppException {
 
     public ProcessException(String message) {
         super(message);

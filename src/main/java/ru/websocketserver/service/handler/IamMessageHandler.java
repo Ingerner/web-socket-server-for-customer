@@ -27,6 +27,8 @@ import static ru.websocketserver.util.ErrorMessage.CLIENT_WITH_CURRENT_SESSION_R
 import static ru.websocketserver.util.ErrorMessage.CLIENT_WITH_CURRENT_SESSION_REGISTERED_AS_PERSON;
 import static ru.websocketserver.util.ErrorMessage.ERROR_SUBSCRIBING_DEVICE;
 import static ru.websocketserver.util.MessageId.I_AM;
+import static ru.websocketserver.util.ValidationErrorMessages.I_AM_PANEL_NULL_VALUE;
+import static ru.websocketserver.util.ValidationErrorMessages.I_AM_PANEL_PANEL_EMPTY_VALUE;
 import static ru.websocketserver.util.ValidationErrorMessages.I_AM_PANEL_PANEL_NOT_ARRAY_FIELD_TYPE;
 import static ru.websocketserver.util.ValidationErrorMessages.I_AM_PANEL_PANEL_NOT_PRIMITIVE_FIELD_TYPE;
 import static ru.websocketserver.util.ValidationUtil.validateReceivedMessage;
@@ -81,12 +83,18 @@ public class IamMessageHandler implements MessageHandler {
     }
 
     private void validatePanelFieldForPanel(JsonElement panelField) {
+        if (panelField == null) {
+            throw new MessageException(I_AM_PANEL_PANEL_EMPTY_VALUE);
+        }
         if (panelField.isJsonArray()) {
             throw new MessageException(I_AM_PANEL_PANEL_NOT_PRIMITIVE_FIELD_TYPE);
         }
     }
 
     private void validatePanelFieldForPerson(JsonElement panelField) {
+        if (panelField == null) {
+            throw new MessageException(I_AM_PANEL_NULL_VALUE);
+        }
         if (!panelField.isJsonArray()) {
             throw new MessageException(I_AM_PANEL_PANEL_NOT_ARRAY_FIELD_TYPE);
         }

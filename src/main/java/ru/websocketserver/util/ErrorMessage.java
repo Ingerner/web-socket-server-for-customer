@@ -14,4 +14,5 @@ public final class ErrorMessage {
     public static final String CLIENT_WITH_CURRENT_SESSION_REGISTERED_AS_DEVICE = "Клиент с текущей сессией уже зарегистрирован как Устройство.";
     public static final String CLIENT_WITH_CURRENT_SESSION_REGISTERED_AS_PERSON = "Клиент с текущей сессией уже зарегистрирован как Пользователь.";
     public static final String BAD_JSON_MESSAGE = "Было передано некорректное JSON сообщение";
+    public static final String SERVER_ERROR = "Произошла ошибка сервера, идентификатор ошибки {0}";
 }

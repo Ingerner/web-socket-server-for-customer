@@ -4,7 +4,7 @@ import lombok.Getter;
 
 import java.util.List;
 
-public class ValidationException extends RuntimeException {
+public class ValidationException extends AppException {
 
     @Getter
     private final List<String> errors;
