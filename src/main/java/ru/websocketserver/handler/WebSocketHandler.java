@@ -1,6 +1,7 @@
 package ru.websocketserver.handler;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
@@ -20,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static ru.websocketserver.util.ErrorMessage.BAD_JSON_MESSAGE;
 import static ru.websocketserver.util.ValidationErrorMessages.UNSUPPORTED_MESSAGE_ID;
 import static ru.websocketserver.util.ValidationUtil.validateReceivedMessage;
 
@@ -63,6 +65,8 @@ public class WebSocketHandler extends TextWebSocketHandler {
             } else {
                 sendErrorResponse(session, MessageFormat.format(UNSUPPORTED_MESSAGE_ID, messageId));
             }
+        } catch (JsonSyntaxException e) {
+            sendErrorResponse(session, BAD_JSON_MESSAGE);
         } catch (ValidationException e) {
             String errors = String.join("\n", e.getErrors());
             sendErrorResponse(session, errors);

@@ -4,7 +4,9 @@ import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
-import ru.websocketserver.domain.message.common.rpl.RplMessage;
+import ru.websocketserver.domain.Device;
+import ru.websocketserver.domain.message.common.rpl.RplIncomingMessage;
+import ru.websocketserver.domain.message.outgoing.rpl.RplOutgoing;
 import ru.websocketserver.exception.ProcessException;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.manager.PersonManager;
@@ -14,7 +16,7 @@ import static ru.websocketserver.util.ErrorMessage.DEVICE_DOES_NOT_EXIST;
 import static ru.websocketserver.util.ValidationUtil.validateReceivedMessage;
 
 @RequiredArgsConstructor
-public class RplMessageHandler<T extends RplMessage> implements MessageHandler {
+public class RplMessageHandler<T extends RplIncomingMessage> implements MessageHandler {
 
     private final Gson gson = new Gson();
 
@@ -31,7 +33,9 @@ public class RplMessageHandler<T extends RplMessage> implements MessageHandler {
         validateReceivedMessage(rplMessage);
         String personSession = rplMessage.getUserSession();
         Person person = personManager.getBySessionId(personSession);
-        person.sendMessage(rplMessage);
+        Device device = deviceManager.getBySessionId(session.getId());
+        RplOutgoing outgoingMessage = rplMessage.convertToOutgoingMessage(device.getMac());
+        person.sendMessage(outgoingMessage);
     }
 
     @Override

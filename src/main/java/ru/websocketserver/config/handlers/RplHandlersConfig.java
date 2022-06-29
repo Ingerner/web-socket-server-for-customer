@@ -2,11 +2,11 @@ package ru.websocketserver.config.handlers;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ru.websocketserver.domain.message.common.rpl.RplBoolValueMessage;
-import ru.websocketserver.domain.message.common.rpl.RplPictureModeMessage;
-import ru.websocketserver.domain.message.common.rpl.RplSourceMessage;
-import ru.websocketserver.domain.message.common.rpl.RplTimeAlarmMessage;
-import ru.websocketserver.domain.message.common.rpl.RplValueMessage;
+import ru.websocketserver.domain.message.common.rpl.RplBoolValueIncomingMessage;
+import ru.websocketserver.domain.message.common.rpl.RplPictureModeIncomingMessage;
+import ru.websocketserver.domain.message.common.rpl.RplSourceIncomingMessage;
+import ru.websocketserver.domain.message.common.rpl.RplTimeAlarmIncomingMessage;
+import ru.websocketserver.domain.message.common.rpl.RplValueIncomingMessage;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.manager.PersonManager;
 import ru.websocketserver.service.handler.MessageHandler;
@@ -28,52 +28,52 @@ public class RplHandlersConfig {
 
     @Bean
     public MessageHandler rplSourceMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new RplMessageHandler<>(RplSourceMessage.class, personManager, deviceManager, RPL_SOURCE);
+        return new RplMessageHandler<>(RplSourceIncomingMessage.class, personManager, deviceManager, RPL_SOURCE);
     }
 
     @Bean
     public MessageHandler rplSleepMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new RplMessageHandler<>(RplBoolValueMessage.class, personManager, deviceManager, RPL_SLEEP);
+        return new RplMessageHandler<>(RplBoolValueIncomingMessage.class, personManager, deviceManager, RPL_SLEEP);
     }
 
     @Bean
     public MessageHandler rplTimeMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new RplMessageHandler<>(RplTimeAlarmMessage.class, personManager, deviceManager, RPL_TIME_ALARM);
+        return new RplMessageHandler<>(RplTimeAlarmIncomingMessage.class, personManager, deviceManager, RPL_TIME_ALARM);
     }
 
     @Bean
     public MessageHandler rplAutoSourceSwitchMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new RplMessageHandler<>(RplBoolValueMessage.class, personManager, deviceManager, RPL_AUTO_SOURCE_SWITCH);
+        return new RplMessageHandler<>(RplBoolValueIncomingMessage.class, personManager, deviceManager, RPL_AUTO_SOURCE_SWITCH);
     }
 
     @Bean
     public MessageHandler rplBacklightMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new RplMessageHandler<>(RplBoolValueMessage.class, personManager, deviceManager, RPL_BACKLIGHT);
+        return new RplMessageHandler<>(RplBoolValueIncomingMessage.class, personManager, deviceManager, RPL_BACKLIGHT);
     }
 
     @Bean
     public MessageHandler rplBrightnessMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new RplMessageHandler<>(RplBoolValueMessage.class, personManager, deviceManager, RPL_BRIGHTNESS);
+        return new RplMessageHandler<>(RplBoolValueIncomingMessage.class, personManager, deviceManager, RPL_BRIGHTNESS);
     }
 
     @Bean
     public MessageHandler rplPictureModeMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new RplMessageHandler<>(RplPictureModeMessage.class, personManager, deviceManager, RPL_PICTURE_MODE);
+        return new RplMessageHandler<>(RplPictureModeIncomingMessage.class, personManager, deviceManager, RPL_PICTURE_MODE);
     }
 
     @Bean
     public MessageHandler rplSaturationMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new RplMessageHandler<>(RplValueMessage.class, personManager, deviceManager, RPL_SATURATION);
+        return new RplMessageHandler<>(RplValueIncomingMessage.class, personManager, deviceManager, RPL_SATURATION);
     }
 
     @Bean
     public MessageHandler rplSharpnessMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new RplMessageHandler<>(RplValueMessage.class, personManager, deviceManager, RPL_SHARPNESS);
+        return new RplMessageHandler<>(RplValueIncomingMessage.class, personManager, deviceManager, RPL_SHARPNESS);
     }
 
     @Bean
     public MessageHandler rplVolumeMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new RplMessageHandler<>(RplValueMessage.class, personManager, deviceManager, RPL_VOLUME);
+        return new RplMessageHandler<>(RplValueIncomingMessage.class, personManager, deviceManager, RPL_VOLUME);
     }
 
 }

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import ru.websocketserver.domain.message.Message;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import static ru.websocketserver.util.ValidationErrorMessages.DATA_BACKLIGHT_NOT_NULL;
@@ -24,7 +25,7 @@ public class DataIncoming extends Message {
     @NotNull(message = DATA_VOLUME_NOT_NULL)
     private Integer volume;
 
-    @NotNull(message = DATA_WORKING_HOURS_NOT_NULL)
+    @NotEmpty(message = DATA_WORKING_HOURS_NOT_NULL)
     private String workingHours;
 
 }

@@ -2,6 +2,8 @@ package ru.websocketserver.domain.message.common.rpl;
 
 import lombok.Getter;
 import lombok.Setter;
+import ru.websocketserver.domain.message.outgoing.rpl.RplOutgoing;
+import ru.websocketserver.domain.message.outgoing.rpl.RplValueOutgoingMessage;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -13,11 +15,19 @@ import static ru.websocketserver.util.ValidationErrorMessages.RPL_TWO_VAL_VALUE_
 
 @Getter
 @Setter
-public class RplBoolValueMessage extends RplMessage {
+public class RplBoolValueIncomingMessage extends RplIncomingMessage {
 
     @NotNull(message = RPL_MESSAGE_VALUE_NOT_NULL)
     @Min(value = 0, message = MESSAGE_VALUE_MIN_VALUE)
     @Max(value = 1, message = RPL_TWO_VAL_VALUE_MAX_VALUE)
     private Integer value;
 
+    @Override
+    public RplOutgoing convertToOutgoingMessage(String panel) {
+        final RplValueOutgoingMessage outgoingMessage = new RplValueOutgoingMessage();
+        outgoingMessage.setMessageId(getMessageId());
+        outgoingMessage.setPanel(panel);
+        outgoingMessage.setValue(getValue());
+        return outgoingMessage;
+    }
 }
