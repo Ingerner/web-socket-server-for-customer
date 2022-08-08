@@ -53,7 +53,7 @@ public class RplHandlersConfig {
 
     @Bean
     public MessageHandler rplBrightnessMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new RplMessageHandler<>(RplBoolValueIncomingMessage.class, personManager, deviceManager, RPL_BRIGHTNESS);
+        return new RplMessageHandler<>(RplValueIncomingMessage.class, personManager, deviceManager, RPL_BRIGHTNESS);
     }
 
     @Bean
