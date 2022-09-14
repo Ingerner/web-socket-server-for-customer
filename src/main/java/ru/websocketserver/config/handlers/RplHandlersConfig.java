@@ -48,7 +48,7 @@ public class RplHandlersConfig {
 
     @Bean
     public MessageHandler rplBacklightMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new RplMessageHandler<>(RplBoolValueIncomingMessage.class, personManager, deviceManager, RPL_BACKLIGHT);
+        return new RplMessageHandler<>(RplValueIncomingMessage.class, personManager, deviceManager, RPL_BACKLIGHT);
     }
 
     @Bean

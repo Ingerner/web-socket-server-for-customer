@@ -74,7 +74,7 @@ public class SetHandlersConfig {
 
     @Bean
     public MessageHandler setBacklightMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new SetMessageHandler<>(SetCommandMessage.class, deviceManager, personManager, SET_BACKLIGHT);
+        return new SetMessageHandler<>(SetValueMessage.class, deviceManager, personManager, SET_BACKLIGHT);
     }
 
     @Bean
