@@ -6,6 +6,8 @@ import ru.websocketserver.domain.entity.DeviceData;
 import ru.websocketserver.domain.message.outgoing.DataOutgoing;
 import ru.websocketserver.repository.DeviceDataJpaRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class DeviceDataService {
@@ -22,5 +24,11 @@ public class DeviceDataService {
                 .build();
         return repository.save(dataForSave);
     }
+
+    public List<DeviceData> findAllByMac(String mac) {
+        return repository.findAllDeviceDataByMac(mac);
+    }
+
+
 
 }
