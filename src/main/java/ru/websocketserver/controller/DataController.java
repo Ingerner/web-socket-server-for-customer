@@ -24,4 +24,8 @@ public class DataController {
                 service.findAllByMac(mac)
         );
     }
+    @GetMapping("/db")
+    public ResponseEntity<List<DeviceData>> showDeviceData() {
+        return ResponseEntity.ok(service.getAllDivicesData());
+    }
 }

@@ -29,6 +29,10 @@ public class DeviceDataService {
         return repository.findAllDeviceDataByMac(mac);
     }
 
+    public List<DeviceData> getAllDivicesData() {
+        return repository.findAll();
+    }
+
 
 
 }
