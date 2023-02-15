@@ -2,6 +2,9 @@ package ru.websocketserver.util;
 
 import lombok.experimental.UtilityClass;
 
+/**
+ * класс описывающий идентификаторы сообщений
+ */
 @UtilityClass
 public final class MessageId {
 

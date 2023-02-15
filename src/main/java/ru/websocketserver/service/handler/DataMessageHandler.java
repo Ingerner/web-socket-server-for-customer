@@ -56,6 +56,7 @@ public class DataMessageHandler implements MessageHandler {
                 .backlight(device.getBacklight())
                 .volume(device.getVolume())
                 .workingHours(device.getWorkingHours())
+                .dateTime(device.getDateTime())
                 .build();
     }
 

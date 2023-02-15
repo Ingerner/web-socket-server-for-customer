@@ -11,6 +11,7 @@ import ru.websocketserver.domain.message.Message;
 
 import java.io.Closeable;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 @Slf4j
 @Getter
@@ -25,6 +26,7 @@ public class Device implements Closeable {
     private Integer backlight;
     private Integer volume;
     private String workingHours;
+    private LocalDateTime dateTime;
 
     private WebSocketSession session;
 

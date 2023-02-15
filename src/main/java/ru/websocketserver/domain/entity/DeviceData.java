@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -46,5 +47,8 @@ public class DeviceData {
     @Size(max = 64)
     @Column(name = "working_hours")
     private String workingHours;
+
+    @Column( name = "dateTime")
+    private LocalDateTime dateTime;
 
 }

@@ -2,6 +2,10 @@ package ru.websocketserver.util;
 
 import lombok.experimental.UtilityClass;
 
+/** Класс описывает ответные сообщения
+ * от сервера
+
+ */
 @UtilityClass
 public final class ErrorMessage {
 

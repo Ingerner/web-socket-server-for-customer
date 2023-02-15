@@ -25,6 +25,7 @@ public class DeviceDataService {
                 .backlight(data.getBacklight())
                 .volume(data.getVolume())
                 .workingHours(data.getWorkingHours())
+                .dateTime(data.getDateTime())
                 .build();
         return repository.save(dataForSave);
     }

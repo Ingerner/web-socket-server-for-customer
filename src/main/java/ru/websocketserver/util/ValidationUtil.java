@@ -12,6 +12,9 @@ import javax.validation.groups.Default;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * класс реализующий валидацию
+ */
 @UtilityClass
 public final class ValidationUtil {
 

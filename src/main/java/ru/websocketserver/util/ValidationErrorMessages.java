@@ -2,6 +2,9 @@ package ru.websocketserver.util;
 
 import lombok.experimental.UtilityClass;
 
+/**
+ * валидация сообщений
+ */
 @UtilityClass
 public final class ValidationErrorMessages {
 
