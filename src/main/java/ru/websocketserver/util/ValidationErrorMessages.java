@@ -2,6 +2,8 @@ package ru.websocketserver.util;
 
 import lombok.experimental.UtilityClass;
 
+import java.time.LocalDateTime;
+
 /**
  * валидация сообщений
  */
@@ -29,6 +31,7 @@ public final class ValidationErrorMessages {
     public static final String DATA_BACKLIGHT_NOT_NULL = "Поле \"backlight\" не может быть пустым.";
     public static final String DATA_VOLUME_NOT_NULL = "Поле \"volume\" не может быть пустым.";
     public static final String DATA_WORKING_HOURS_NOT_NULL = "Поле \"workingHours\" не может быть пустым.";
+    public static final String DATA_DATE_TIME_NOT_NULL = "Поле \"dateTime\" не может быть пустым.";
 
     public static final String SET_PANEL_NOT_EMPTY = "Поле \"panel\" не может быть пустым.";
     public static final String SET_SOURCE_SOURCE_NOT_NULL = "Поле \"source\" не может быть пустым.";

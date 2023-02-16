@@ -47,6 +47,7 @@ public class DataMessageHandler implements MessageHandler {
         device.setBacklight(incomingData.getBacklight());
         device.setVolume(incomingData.getVolume());
         device.setWorkingHours(incomingData.getWorkingHours());
+        device.setDateTime(incomingData.getDateTime());
     }
 
     private DataOutgoing getOutgoingMessage(Device device) {

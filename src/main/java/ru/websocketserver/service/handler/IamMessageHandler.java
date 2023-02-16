@@ -131,6 +131,7 @@ public class IamMessageHandler implements MessageHandler {
                             .temp(device.getTemp())
                             .backlight(device.getBacklight())
                             .workingHours(device.getWorkingHours())
+                            .dateTime(device.getDateTime())
                             .build();
                     person.sendMessage(outgoingMessage);
                 }
