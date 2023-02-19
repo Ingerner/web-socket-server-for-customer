@@ -25,7 +25,6 @@ public class DeviceDataService {
                 .backlight(data.getBacklight())
                 .volume(data.getVolume())
                 .workingHours(data.getWorkingHours())
-                .dateTime(data.getDateTime())
                 .build();
         return repository.save(dataForSave);
     }
@@ -39,11 +38,14 @@ public class DeviceDataService {
                 PageRequest.of(
                         pageNum,
                         pageSize,
-                        Sort.by("id").descending()
+                        Sort.by(DeviceData.Fields.dateTime).descending()
                 )
         );
     }
 
-
+    //TODO: удалить
+    public DeviceData create(@NonNull DeviceData data) {
+        return repository.save(data);
+    }
 
 }

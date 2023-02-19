@@ -3,11 +3,7 @@ package ru.websocketserver.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.websocketserver.domain.entity.DeviceData;
 import ru.websocketserver.domain.response.DeviceDataResponse;
 import ru.websocketserver.service.DeviceDataService;
@@ -42,4 +38,15 @@ public class DataController {
                         .build()
         );
     }
+
+    //TODO: удалить
+    @PostMapping
+    public ResponseEntity<DeviceData> create(
+            @RequestBody DeviceData data
+    ) {
+        return ResponseEntity.ok(
+                service.create(data)
+        );
+    }
+
 }

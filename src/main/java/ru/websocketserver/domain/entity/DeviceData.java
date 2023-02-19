@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.FieldNameConstants;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,6 +25,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@FieldNameConstants
 @Table(name = "device_data")
 public class DeviceData {
 
@@ -48,7 +52,8 @@ public class DeviceData {
     @Column(name = "working_hours")
     private String workingHours;
 
-    @Column( name = "dateTime")
+    @CreationTimestamp
+    @Column(name = "date")
     private LocalDateTime dateTime;
 
 }

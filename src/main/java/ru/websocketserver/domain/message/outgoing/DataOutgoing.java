@@ -20,16 +20,14 @@ public class DataOutgoing extends Message {
     private Integer volume;
     private String workingHours;
 
-    private LocalDateTime dateTime;
 
-    public DataOutgoing(String deviceMac, Integer temp, Integer backlight, Integer volume, String workingHours, LocalDateTime dateTime) {
+    public DataOutgoing(String deviceMac, Integer temp, Integer backlight, Integer volume, String workingHours) {
         super(DATA);
         this.deviceMac = deviceMac;
         this.temp = temp;
         this.backlight = backlight;
         this.volume = volume;
         this.workingHours = workingHours;
-        this.dateTime = dateTime;
 
     }
 }

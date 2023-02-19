@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import ru.websocketserver.domain.entity.DeviceData;
 
-import java.time.LocalDateTime;
+
 import java.util.List;
 
 @Data
