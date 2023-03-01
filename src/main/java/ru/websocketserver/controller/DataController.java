@@ -39,6 +39,7 @@ public class DataController {
         );
     }
 
+/**
     //TODO: удалить
     @PostMapping
     public ResponseEntity<DeviceData> create(
@@ -48,5 +49,6 @@ public class DataController {
                 service.create(data)
         );
     }
+ */
 
 }

@@ -33,12 +33,19 @@ public class DeviceDataService {
         return repository.findAllDeviceDataByMac(mac);
     }
 
+    /**
+     *
+     * @param pageNum
+     * @param pageSize
+     * @return
+     * DeviceData.Fields.dateTime - сортировка по дате (dateTime)
+     */
     public Page<DeviceData> getAllDevicesData(@NonNull Integer pageNum, @NonNull Integer pageSize) {
         return repository.findAll(
                 PageRequest.of(
                         pageNum,
                         pageSize,
-                        Sort.by(DeviceData.Fields.dateTime).descending()
+                        Sort.by("id").descending()
                 )
         );
     }
