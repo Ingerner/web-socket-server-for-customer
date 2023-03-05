@@ -2,6 +2,7 @@ package ru.websocketserver.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.websocketserver.domain.entity.DeviceData;
@@ -23,6 +24,7 @@ public class DataController {
                 service.findAllByMac(mac)
         );
     }
+
     @GetMapping("/db")
     public ResponseEntity<DeviceDataResponse> showDeviceData(
             @RequestParam("pageNum") Integer pageNum,
@@ -37,6 +39,13 @@ public class DataController {
                         .totalPages(page.getTotalPages())
                         .build()
         );
+    }
+
+    @DeleteMapping("/{mac}")
+    public ResponseEntity <List<DeviceData>> deleteDeviceData(@PathVariable String mac) {
+         return ResponseEntity.ok(
+                 service.deleteByMac(mac)
+         );
     }
 
 /**

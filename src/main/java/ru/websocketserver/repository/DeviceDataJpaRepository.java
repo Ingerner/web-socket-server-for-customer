@@ -19,4 +19,6 @@ public interface DeviceDataJpaRepository extends JpaRepository<DeviceData, Long>
 
     Page<DeviceData> findAll(@NonNull Pageable pageable);
 
+     List<DeviceData> deleteByMac(String mac);
+
 }

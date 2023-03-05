@@ -6,6 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import ru.websocketserver.domain.entity.DeviceData;
 import ru.websocketserver.domain.message.outgoing.DataOutgoing;
 import ru.websocketserver.repository.DeviceDataJpaRepository;
@@ -33,6 +35,7 @@ public class DeviceDataService {
         return repository.findAllDeviceDataByMac(mac);
     }
 
+
     /**
      *
      * @param pageNum
@@ -48,6 +51,11 @@ public class DeviceDataService {
                         Sort.by("id").descending()
                 )
         );
+    }
+
+    @Transactional
+    public List<DeviceData> deleteByMac(String mac) {
+        return repository.deleteByMac(mac);
     }
 
     //TODO: удалить
