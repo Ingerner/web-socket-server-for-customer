@@ -12,10 +12,8 @@ import java.util.List;
 
 public interface DeviceDataJpaRepository extends JpaRepository<DeviceData, Long> {
 
-    List<DeviceData> findAllDeviceDataByMac(String mac);
-
-    @Query("select d.mac from DeviceData d")
-    List<String> findAllMac();
+    List<DeviceData> findAllDeviceDataByMac(@NonNull String mac,
+                                            @NonNull Pageable pageable);
 
     Page<DeviceData> findAll(@NonNull Pageable pageable);
 

@@ -31,8 +31,16 @@ public class DeviceDataService {
         return repository.save(dataForSave);
     }
 
-    public List<DeviceData> findAllByMac(@NonNull String mac) {
-        return repository.findAllDeviceDataByMac(mac);
+    public List<DeviceData> findAllByMac(@NonNull String mac,
+                                         @NonNull Integer pageNum,
+                                         @NonNull Integer pageSize) {
+        return repository.findAllDeviceDataByMac(
+                mac,
+                PageRequest.of(
+                        pageNum,
+                        pageSize
+                )
+        );
     }
 
 
@@ -41,7 +49,7 @@ public class DeviceDataService {
      * @param pageNum
      * @param pageSize
      * @return
-     * DeviceData.Fields.dateTime - сортировка по дате (dateTime)
+     * DeviceData.Fields.dateTime - сортировка по дате (dateTime (id)*)
      */
     public Page<DeviceData> getAllDevicesData(@NonNull Integer pageNum, @NonNull Integer pageSize) {
         return repository.findAll(

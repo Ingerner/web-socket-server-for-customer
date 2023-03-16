@@ -19,9 +19,15 @@ public class DataController {
     private final DeviceDataService service;
 
     @GetMapping("/{mac}")
-    public ResponseEntity<List<DeviceData>> findAll(@PathVariable("mac") String mac) {
+    public ResponseEntity<List<DeviceData>> findAll(
+            @PathVariable("mac") String mac,
+            @RequestParam("pageNum") Integer pageNum,
+            @RequestParam("pageSize") Integer pageSize) {
         return ResponseEntity.ok(
-                service.findAllByMac(mac)
+                service.findAllByMac(
+                        mac,
+                        pageNum,
+                        pageSize)
         );
     }
 
