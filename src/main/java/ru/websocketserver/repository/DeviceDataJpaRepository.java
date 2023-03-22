@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface DeviceDataJpaRepository extends JpaRepository<DeviceData, Long> {
 
-    List<DeviceData> findAllDeviceDataByMac(@NonNull String mac,
+    Page<DeviceData> findAllDeviceDataByMac(@NonNull String mac,
                                             @NonNull Pageable pageable);
 
     Page<DeviceData> findAll(@NonNull Pageable pageable);

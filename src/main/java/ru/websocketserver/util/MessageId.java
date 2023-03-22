@@ -27,6 +27,7 @@ public final class MessageId {
     public static final String SET_VOLUME = "setVolume";
     public static final String SET_VOLUME_UP = "setVolumeUp";
     public static final String SET_VOLUME_DOWN = "setVolumeDown";
+    public static final String SET_TURNING_DEVICE = "setTurningDevice";
 
     public static final String GET_SOURCE = "getSource";
     public static final String GET_SLEEP = "getSleep";

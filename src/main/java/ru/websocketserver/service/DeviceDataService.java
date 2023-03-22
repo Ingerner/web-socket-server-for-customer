@@ -31,7 +31,7 @@ public class DeviceDataService {
         return repository.save(dataForSave);
     }
 
-    public List<DeviceData> findAllByMac(@NonNull String mac,
+    public Page<DeviceData> findAllByMac(@NonNull String mac,
                                          @NonNull Integer pageNum,
                                          @NonNull Integer pageSize) {
         return repository.findAllDeviceDataByMac(
