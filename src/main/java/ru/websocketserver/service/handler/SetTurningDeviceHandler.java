@@ -2,9 +2,12 @@ package ru.websocketserver.service.handler;
 
 import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
+import ru.websocketserver.domain.Device;
+import ru.websocketserver.domain.DeviceTurning;
 import ru.websocketserver.domain.message.incoming.SetMassageIncoming;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.service.DeviceTurningService;
@@ -23,11 +26,14 @@ public class SetTurningDeviceHandler implements MessageHandler {
 
 
     @Override
+    @SneakyThrows
     public void handle(WebSocketSession session, TextMessage message) {
         String messagePayload = message.getPayload();
-        SetMassageIncoming massageIncoming = gson.fromJson(messagePayload, SetMassageIncoming.class);
+        DeviceTurning massageIncoming = gson.fromJson(messagePayload, DeviceTurning.class);
         validateReceivedMessage(massageIncoming);
-
+        Device device = deviceManager.getBySessionId(session.getId());
+        device.getMac();
+        session.close();
 
 
     }
