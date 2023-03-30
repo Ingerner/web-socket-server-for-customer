@@ -27,6 +27,10 @@ public class DeviceDataTurning {
     @Column(name = "mac")
     private String mac;
 
+    @Size(max=64)
+    @Column(name = "process")
+    private String process;
+
     @Column(name = "date")
     private LocalDateTime dateTime;
 }

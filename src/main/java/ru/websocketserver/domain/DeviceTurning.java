@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 @Builder
 public class DeviceTurning extends Message {
-
+    private String process;
     private LocalDateTime dateTime;
+
 }

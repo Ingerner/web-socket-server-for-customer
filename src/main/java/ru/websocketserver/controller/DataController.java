@@ -18,6 +18,8 @@ public class DataController {
 
     private final DeviceDataService service;
 
+
+
     @GetMapping("/{mac}")
     public ResponseEntity<DeviceDataResponse> findAll(
             @PathVariable("mac") String mac,

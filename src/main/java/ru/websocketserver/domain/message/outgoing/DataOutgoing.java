@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 import ru.websocketserver.domain.message.Message;
 
-import java.time.LocalDateTime;
 
 import static ru.websocketserver.util.MessageId.DATA;
 

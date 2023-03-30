@@ -8,7 +8,7 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import ru.websocketserver.domain.Device;
 import ru.websocketserver.domain.DeviceTurning;
-import ru.websocketserver.domain.message.incoming.SetMassageIncoming;
+import ru.websocketserver.domain.message.outgoing.DataTurningOutgoing;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.service.DeviceTurningService;
 
@@ -24,23 +24,32 @@ public class SetTurningDeviceHandler implements MessageHandler {
     private final DeviceTurningService turningService;
 
 
-
     @Override
     @SneakyThrows
     public void handle(WebSocketSession session, TextMessage message) {
         String messagePayload = message.getPayload();
         DeviceTurning massageIncoming = gson.fromJson(messagePayload, DeviceTurning.class);
         validateReceivedMessage(massageIncoming);
+
         Device device = deviceManager.getBySessionId(session.getId());
-        device.getMac();
-        session.close();
-
-
+        device.setDateTime(massageIncoming.getDateTime());
+        device.setProcess(massageIncoming.getProcess());
+        DataTurningOutgoing outgoingMessage = getOutgoingMessage(device);
+        turningService.saveDeviceDataTurning(outgoingMessage);
     }
 
+    private DataTurningOutgoing getOutgoingMessage(Device device) {
+        return DataTurningOutgoing.builder()
+                .deviceMac(device.getMac())
+                .process(device.getProcess())
+                .dateTime(device.getDateTime())
+                .build();
+
+    }
 
     @Override
     public String getMessageType() {
         return SET_TURNING_DEVICE;
     }
 }
+
