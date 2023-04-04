@@ -11,7 +11,7 @@ import static ru.websocketserver.util.MessageId.SET_TURNING_DEVICE;
 @Getter
 @Setter
 @Builder
-public class DataTurningOutgoing extends Message {
+public class       DataTurningOutgoing extends Message {
     private String deviceMac;
     private String process;
     private LocalDateTime dateTime;

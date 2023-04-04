@@ -64,6 +64,9 @@ public class WebSocketHandler extends TextWebSocketHandler {
             String messageId = receivedMessage.getMessageId();
             MessageHandler currentHandler = handlers.get(messageId);
             if (currentHandler != null) {
+                // написать репозиторий и сервис, и сюда логику вызова сервиса
+                // messageId и текст сообщения положить в репозиторий
+                message.getPayload(); //текст сообщения
                 currentHandler.handle(session, message);
             } else {
                 sendErrorResponse(session, MessageFormat.format(UNSUPPORTED_MESSAGE_ID, messageId));
