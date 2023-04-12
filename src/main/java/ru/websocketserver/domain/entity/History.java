@@ -2,10 +2,12 @@ package ru.websocketserver.domain.entity;
 
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -22,11 +24,15 @@ public class History {
     private Long id;
 
     @NotEmpty
-    @Column(name = "messageId")
+    @Column(name = "message_id")
     private String messageId;
 
-    @Column(name = "MessageText")
-    private String MessageText;
+    @Column(name = "message_text")
+    private String messageText;
+
+    @CreationTimestamp
+    @Column(name = "date")
+    private LocalDateTime dateTime;
 
 
 

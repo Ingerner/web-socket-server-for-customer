@@ -10,10 +10,12 @@ import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 import ru.websocketserver.domain.message.Message;
 import ru.websocketserver.domain.message.outgoing.Error;
+import ru.websocketserver.domain.message.outgoing.HistoryOutgoing;
 import ru.websocketserver.exception.AppException;
 import ru.websocketserver.exception.ValidationException;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.manager.PersonManager;
+import ru.websocketserver.service.HistoryServise;
 import ru.websocketserver.service.handler.MessageHandler;
 
 import java.io.IOException;
@@ -38,13 +40,18 @@ public class WebSocketHandler extends TextWebSocketHandler {
 
     private final PersonManager personManager;
     private final DeviceManager deviceManager;
+    private final HistoryServise historyServise;
 
-    public WebSocketHandler(List<MessageHandler> handlers, PersonManager personManager, DeviceManager deviceManager) {
+    public WebSocketHandler(List<MessageHandler> handlers,
+                            PersonManager personManager,
+                            DeviceManager deviceManager,
+                            HistoryServise historyServise) {
         this.handlers = handlers
                 .stream()
                 .collect(Collectors.toMap(MessageHandler::getMessageType, MessageHandler.class::cast));
         this.personManager = personManager;
         this.deviceManager = deviceManager;
+        this.historyServise = historyServise;
     }
 
     @Override
@@ -64,9 +71,11 @@ public class WebSocketHandler extends TextWebSocketHandler {
             String messageId = receivedMessage.getMessageId();
             MessageHandler currentHandler = handlers.get(messageId);
             if (currentHandler != null) {
-                // написать репозиторий и сервис, и сюда логику вызова сервиса
-                // messageId и текст сообщения положить в репозиторий
-                message.getPayload(); //текст сообщения
+                HistoryOutgoing historyOutgoing = HistoryOutgoing.builder()
+                        .messageId(currentHandler.getMessageType())
+                        .messageText(message.getPayload())
+                        .build();
+                historyServise.saveHistory(historyOutgoing);
                 currentHandler.handle(session, message);
             } else {
                 sendErrorResponse(session, MessageFormat.format(UNSUPPORTED_MESSAGE_ID, messageId));

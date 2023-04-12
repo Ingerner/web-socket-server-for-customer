@@ -11,4 +11,5 @@
     <include file="liquibase/v.1.0.0/2023-03-28-create-device-turning-table.xml"/>
     <include file="liquibase/v.1.0.0/2023-03-30-add-colume-turning-table.xml"/>
     <include file="liquibase/v.1.0.0/2023-04-04-create-historyMessange-table.xml"/>
+    <include file="liquibase/v.1.0.0/2023-04-12-add-colume-history-table.xml"/>
 </databaseChangeLog>

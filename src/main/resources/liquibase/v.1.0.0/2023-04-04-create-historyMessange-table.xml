@@ -10,10 +10,10 @@
             <column name="id" type="int" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_history"/>
             </column>
-            <column name="messageId" type="text">
+            <column name="message_id" type="text">
                 <constraints nullable="false"/>
             </column>
-            <column name="MessageText" type="text"/>
+            <column name="message_text" type="text"/>
         </createTable>
 
     </changeSet>
