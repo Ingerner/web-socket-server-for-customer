@@ -1,0 +1,106 @@
+9. API для конфигурирования сети: 
+	- Возможность удаленно менять сетевые настройки панели.(ip address,mask,dns server,sesurity),
+	- Возможность включения DHCP/Static (динамическое/статическое получение ip адреса) 
+	- управление wifi, lan включено\выключено. 
+	- Функция сброса параметров если была ошибка. 
+	- Возвращает значение в настройки где доступ к интернету были.
+	- Подключение к Wifi сети по SSID и паролю
+
+
+Возможность удаленно менять сетевые настройки панели.(ip address,mask,dns server,sesurity)
+
+измененние Ip адреса:
+{
+    "messageId": "setSetingsIpAddress",
+    "panel": "mac-адрес устройства",
+    "ipAddress": "__________"
+}
+
+
+изменение mask: 
+{
+    "messageId": "setSettingsMask",
+    "panel": "mac-адрес устройства",
+    "mask": "__________"
+}
+
+изменение dns server:
+{
+    "messageId": "setSettingsDnsServer",
+    "panel": "mac-адрес устройства",
+    "dnsServer": "__________"
+}
+
+{
+    "messageId": "setSettingsSecurity",
+    "panel": "mac-адрес устройства",
+    "sesurity": "__________"
+}	
+
+
+Возможность включения DHCP/Static (динамическое/статическое получение ip адреса) 
+см. запись.
+{
+    "messageId": "setSettingsDhcpStatic",
+    "panel": "mac-адрес устройства",
+    "mode": "static",
+    "ipAdress": "_________" 
+}
+поле mode принимает:
+- static
+- dhcp
+если dhcp то вводится поле ipAdress если нет то поле пустое 
+
+
+
+Управление wifi включено\выключено.
+
+{
+    "messageId": "setSettingsWifi",
+    "panel": "mac-адрес устройства",
+    "wifi": "enable"
+}
+ wifi принимает значение:
+-enable:
+-desable.
+
+
+Управление lan включено\выключено.
+
+{
+    "messageId": "setSetingsLan",
+    "panel": "mac-адрес устройства",
+    "Lan": "enable"
+}
+ Lan принимает значение:
+-enable:
+-desable.
+
+
+Функция сброса параметров если была ошибка
+
+{
+    "messageId": "setReset",
+    "panel": "mac-адрес устройства",
+  
+}
+
+
+Возвращает значение в настройки где доступ к интернету были
+
+в протоколе уже есть (уточнить функционал)
+
+{
+    "messageId": "setReboot",
+    "panel": "mac-адрес устройства"
+}
+
+
+Подключение к Wifi сети по SSID и паролю
+
+{
+    "messageId": "setWifiSsid",
+    "panel": "mac-адрес устройства",
+    "ssid": "_______",
+    "password": "_______"
+}
