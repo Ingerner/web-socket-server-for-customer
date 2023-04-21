@@ -2,32 +2,13 @@ package ru.websocketserver.config.handlers;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ru.websocketserver.domain.message.common.set.SetCommandMessage;
-import ru.websocketserver.domain.message.common.set.SetPictureModeMessage;
-import ru.websocketserver.domain.message.common.set.SetSourceMessage;
-import ru.websocketserver.domain.message.common.set.SetTimeAlarmMessage;
-import ru.websocketserver.domain.message.common.set.SetValueMessage;
+import ru.websocketserver.domain.message.common.set.*;
 import ru.websocketserver.manager.DeviceManager;
 import ru.websocketserver.manager.PersonManager;
 import ru.websocketserver.service.handler.MessageHandler;
 import ru.websocketserver.service.handler.SetMessageHandler;
 
-import static ru.websocketserver.util.MessageId.SET_AUTO_SOURCE_SWITCH;
-import static ru.websocketserver.util.MessageId.SET_BACKLIGHT;
-import static ru.websocketserver.util.MessageId.SET_BRIGHTNESS;
-import static ru.websocketserver.util.MessageId.SET_OPS_START;
-import static ru.websocketserver.util.MessageId.SET_PICTURE_MODE;
-import static ru.websocketserver.util.MessageId.SET_REBOOT;
-import static ru.websocketserver.util.MessageId.SET_SATURATION;
-import static ru.websocketserver.util.MessageId.SET_SHARPNESS;
-import static ru.websocketserver.util.MessageId.SET_SHUTDOWN;
-import static ru.websocketserver.util.MessageId.SET_SLEEP;
-import static ru.websocketserver.util.MessageId.SET_SOURCE;
-import static ru.websocketserver.util.MessageId.SET_TIME_ALARM;
-import static ru.websocketserver.util.MessageId.SET_VOLUME;
-import static ru.websocketserver.util.MessageId.SET_VOLUME_DOWN;
-import static ru.websocketserver.util.MessageId.SET_VOLUME_UP;
-import static ru.websocketserver.util.MessageId.SET_WAKEUP;
+import static ru.websocketserver.util.MessageId.*;
 
 @Configuration
 public class SetHandlersConfig {
@@ -110,6 +91,22 @@ public class SetHandlersConfig {
     @Bean
     public MessageHandler setVolumeDownMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
         return new SetMessageHandler<>(SetCommandMessage.class, deviceManager, personManager, SET_VOLUME_DOWN);
+    }
+
+    @Bean MessageHandler setSettingsIpAddressMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_IP_ADRESS);
+    }
+
+    @Bean MessageHandler setSettingsMaskMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_MASK);
+    }
+
+    @Bean MessageHandler setSettingsDnsServerMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_SERVER);
+    }
+
+    @Bean MessageHandler setSettingsSecurityMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_SECURITY);
     }
 
 }

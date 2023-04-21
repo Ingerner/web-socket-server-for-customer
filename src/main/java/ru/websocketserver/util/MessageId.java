@@ -28,6 +28,13 @@ public final class MessageId {
     public static final String SET_VOLUME_UP = "setVolumeUp";
     public static final String SET_VOLUME_DOWN = "setVolumeDown";
     public static final String SET_TURNING_DEVICE = "setTurningDevice";
+    public static final String SET_SETTINGS_IP_ADRESS = "setSettingsIpAddress";
+    public static final String SET_SETTINGS_MASK = "setSettingsMask";
+    public static final String SET_SETTINGS_SERVER = "setSettingsDnsServer";
+    public static final String SET_SETTINGS_SECURITY = "setSettingsSecurity";
+
+
+
 
     public static final String GET_SOURCE = "getSource";
     public static final String GET_SLEEP = "getSleep";
