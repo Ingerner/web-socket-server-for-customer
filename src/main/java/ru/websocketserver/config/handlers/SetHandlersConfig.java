@@ -109,4 +109,30 @@ public class SetHandlersConfig {
         return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_SECURITY);
     }
 
+    @Bean MessageHandler setSettingsDhcpStaticMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_DHCP_STATIC);
+    }
+
+    @Bean MessageHandler setSettingsWifiMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetStatusMessage.class,deviceManager,personManager, SET_SETTINGS_Wifi);
+    }
+
+    @Bean MessageHandler setSettingsLanMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetStatusMessage.class,deviceManager,personManager, SET_SETTINGS_LAN);
+    }
+
+    @Bean MessageHandler setResetMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetCommandMessage.class,deviceManager,personManager, SET_RESET);
+    }
+
+    @Bean MessageHandler setWifiSsidMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetWifiPasswordMessage.class,deviceManager,personManager, SET_WIFI_SSID);
+    }
+
+
+
+
+
+
+
 }

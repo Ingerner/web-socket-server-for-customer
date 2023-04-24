@@ -19,6 +19,10 @@ public final class ValidationErrorMessages {
     public static final String MESSAGE_VALUE_MIN_VALUE = "Поле \"value\" не может быть меньше 0.";
     public static final String PICTURE_MODE_VALUE_MAX = "Поле \"value\" не может быть больше 10.";
     public static final String SETTING_NOT_NULL = "Поле \"setting\" не может быть пустым.";
+    public static final String STATUS_NOT_NULL = "Поле \"status\" не может быть пустым.";
+    public static final String SSID_NOT_NULL = "Поле \"ssid\" не может быть пустым.";
+    public static final String PASSWORD_NOT_NULL = "Поле \"password\" не может быть пустым.";
+
 
     public static final String I_AM_NOT_VALIDATE_CLIENT_ID_VALUE = "Неверный идетификатор клиента, укажите в параметре \"id\": 0 - для устройства, 1 - для пользователя.";
     public static final String I_AM_EMPTY_CLIENT_ID_FIELD = "Идентификатор клиента не может быть пустым. укажите в параметре \"id\": 0 - для устройства, 1 - для пользователя";
