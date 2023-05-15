@@ -1,5 +1,9 @@
 server:
   port: ${PORT:8080}
+  ssl:
+    certificate: classpath:cert/domain.pem
+    certificate-private-key: classpath:cert/domain.key
+    key-password: domain
 
 spring:
   datasource:
