@@ -5,7 +5,7 @@ server:
     protocol: TLS
     enabled-protocols: TLSv1.2
     key-store-type: PKCS12
-    key-store: classpath:cert/ws-keystore.p12
+    key-store: classpath:cert/keystore.p12
     key-store-password: ${KEY_STORE_PASSWORD}
 
 spring:
