@@ -12,5 +12,5 @@ import static ru.websocketserver.util.ValidationErrorMessages.SETTING_NOT_NULL;
 public class SetSettingsMessage extends SetMessage {
 
     @NotNull(message = SETTING_NOT_NULL)
-    private String setting;
+    private String value;
 }
