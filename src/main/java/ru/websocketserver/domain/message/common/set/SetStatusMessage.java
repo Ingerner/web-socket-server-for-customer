@@ -11,5 +11,5 @@ import static ru.websocketserver.util.ValidationErrorMessages.STATUS_NOT_NULL;
 @Getter
 public class SetStatusMessage extends SetMessage{
     @NotNull(message = STATUS_NOT_NULL)
-    private boolean status;
+    private boolean value;
 }

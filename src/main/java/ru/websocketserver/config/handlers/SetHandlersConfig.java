@@ -109,8 +109,16 @@ public class SetHandlersConfig {
         return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_SECURITY);
     }
 
-    @Bean MessageHandler setSettingsDhcpStaticMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new SetMessageHandler<>(SetSettingsDhcpStaticMessage.class,deviceManager,personManager, SET_SETTINGS_DHCP_STATIC);
+//    @Bean MessageHandler setSettingsDhcpStaticMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+//        return new SetMessageHandler<>(SetSettingsDhcpStaticMessage.class,deviceManager,personManager, SET_SETTINGS_DHCP_STATIC);
+//    }
+
+    @Bean MessageHandler setSettingsDhcpMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_DHCP);
+    }
+
+    @Bean MessageHandler setSettingStaticMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_STATIC);
     }
 
     @Bean MessageHandler setSettingsWifiMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
