@@ -32,7 +32,6 @@ public final class MessageId {
     public static final String SET_SETTINGS_MASK = "setSettingsMask";
     public static final String SET_SETTINGS_SERVER = "setSettingsDnsServer";
     public static final String SET_SETTINGS_SECURITY = "setSettingsSecurity";
-    //public static final String SET_SETTINGS_DHCP_STATIC= "setSettingsDhcpStatic";
     public static final String SET_SETTINGS_DHCP = "setSettingsDhcp";
     public static final String SET_SETTINGS_STATIC = "setSettingsStatic";
     public static final String SET_SETTINGS_Wifi = "setSettingsWifi";
