@@ -28,7 +28,7 @@ public final class MessageId {
     public static final String SET_VOLUME_UP = "setVolumeUp";
     public static final String SET_VOLUME_DOWN = "setVolumeDown";
     public static final String SET_TURNING_DEVICE = "setTurningDevice";
-    public static final String SET_SETTINGS_IP_ADRESS = "setSettingsIpAddress";
+    public static final String SET_SETTINGS_IP_ADDRESS = "setSettingsIpAddress";
     public static final String SET_SETTINGS_MASK = "setSettingsMask";
     public static final String SET_SETTINGS_SERVER = "setSettingsDnsServer";
     public static final String SET_SETTINGS_SECURITY = "setSettingsSecurity";
@@ -38,6 +38,7 @@ public final class MessageId {
     public static final String SET_SETTINGS_LAN = "setSettingsLan";
     public static final String SET_RESET = "setReset";
     public static final String SET_WIFI_SSID = "setWifiSsid";
+    public static final String SET_SETTINGS_WIFI_IP_ADDRESS = "setSettingsWifiIpAddress";
 
 
 

@@ -94,7 +94,7 @@ public class SetHandlersConfig {
     }
 
     @Bean MessageHandler setSettingsIpAddressMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_IP_ADRESS);
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_IP_ADDRESS);
     }
 
     @Bean MessageHandler setSettingsMaskMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
@@ -137,6 +137,9 @@ public class SetHandlersConfig {
         return new SetMessageHandler<>(SetWifiPasswordMessage.class,deviceManager,personManager, SET_WIFI_SSID);
     }
 
+    @Bean MessageHandler setSettingsWifiStaticMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_WIFI_IP_ADDRESS);
+    }
 
 
 
