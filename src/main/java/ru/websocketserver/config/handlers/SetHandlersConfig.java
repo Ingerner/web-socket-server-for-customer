@@ -122,7 +122,7 @@ public class SetHandlersConfig {
     }
 
     @Bean MessageHandler setSettingsWifiMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new SetMessageHandler<>(SetStatusMessage.class,deviceManager,personManager, SET_SETTINGS_Wifi);
+        return new SetMessageHandler<>(SetStatusMessage.class,deviceManager,personManager, SET_SETTINGS_Wifi_Dhcp);
     }
 
     @Bean MessageHandler setSettingsLanMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
@@ -137,6 +137,21 @@ public class SetHandlersConfig {
         return new SetMessageHandler<>(SetWifiPasswordMessage.class,deviceManager,personManager, SET_WIFI_SSID);
     }
 
+    @Bean MessageHandler setSettingsIpAddressWifiMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_IP_ADRESS_WIFI);
+    }
+
+    @Bean MessageHandler setSettingsMaskWifiMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_MASK_WIFI);
+    }
+
+    @Bean MessageHandler setSettingsDnsServerDns1MessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_SERVER_DNS1);
+    }
+
+    @Bean MessageHandler setSettingsDhcpWifiMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_DHCP_WIFI);
+    }
 
 
 

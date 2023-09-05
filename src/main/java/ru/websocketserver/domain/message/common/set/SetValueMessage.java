@@ -18,5 +18,4 @@ public class SetValueMessage extends SetMessage {
     @Min(value = 0, message = VALUE_NOT_VALID_VALUE)
     @Max(value = 100, message = VALUE_NOT_VALID_VALUE)
     private Integer value;
-
 }
