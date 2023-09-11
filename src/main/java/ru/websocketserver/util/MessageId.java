@@ -28,9 +28,9 @@ public final class MessageId {
     public static final String SET_VOLUME_UP = "setVolumeUp";
     public static final String SET_VOLUME_DOWN = "setVolumeDown";
     public static final String SET_TURNING_DEVICE = "setTurningDevice";
-    public static final String SET_SETTINGS_IP_ADRESS = "setSettingsIpAddress";
-    public static final String SET_SETTINGS_MASK = "setSettingsMask";
-    public static final String SET_SETTINGS_SERVER = "setSettingsDnsServer";
+    public static final String SET_SETTINGS_IP_ETHERNET = "setSettingsIpEthernet";
+    public static final String SET_SETTINGS_MASK_ETHERNET = "setSettingsMaskEthernet";
+    public static final String SET_SETTINGS_DNS1_ETHERNET = "setSettingsDns1Ethernet";
     public static final String SET_SETTINGS_SECURITY = "setSettingsSecurity";
     public static final String SET_SETTINGS_DHCP = "setSettingsDhcp";
     public static final String SET_SETTINGS_STATIC = "setSettingsStatic";

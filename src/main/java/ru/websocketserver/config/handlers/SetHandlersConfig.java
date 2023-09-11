@@ -94,15 +94,15 @@ public class SetHandlersConfig {
     }
 
     @Bean MessageHandler setSettingsIpAddressMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_IP_ADRESS);
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_IP_ETHERNET);
     }
 
     @Bean MessageHandler setSettingsMaskMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_MASK);
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_MASK_ETHERNET);
     }
 
     @Bean MessageHandler setSettingsDnsServerMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_SERVER);
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_DNS1_ETHERNET);
     }
 
     @Bean MessageHandler setSettingsSecurityMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
