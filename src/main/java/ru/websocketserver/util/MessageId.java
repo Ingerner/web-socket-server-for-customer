@@ -31,18 +31,18 @@ public final class MessageId {
     public static final String SET_SETTINGS_IP_ETHERNET = "setSettingsIpEthernet";
     public static final String SET_SETTINGS_MASK_ETHERNET = "setSettingsMaskEthernet";
     public static final String SET_SETTINGS_DNS1_ETHERNET = "setSettingsDns1Ethernet";
-    public static final String SET_SETTINGS_SECURITY = "setSettingsSecurity";
-    public static final String SET_SETTINGS_DHCP = "setSettingsDhcp";
+    public static final String SET_SETTINGS_SECURITY_ETHERNET = "setSettingsSecurityEthernet";
+    public static final String SET_SETTINGS_DHCP_ETHERNET = "setSettingsDhcpEthernet";
     public static final String SET_SETTINGS_STATIC = "setSettingsStatic";
-    public static final String SET_SETTINGS_Wifi = "setSettingsWifi";
-    public static final String SET_SETTINGS_LAN = "setSettingsLan";
+    public static final String SET_SETTINGS_Wifi_ENABLE = "setSettingsWifiEnable";
+    public static final String SET_SETTINGS_LAN_ENABLE = "setSettingsLanEnable";
     public static final String SET_RESET = "setReset";
-    public static final String SET_WIFI_SSID = "setWifiSsid";
-    public static final String SET_SETTINGS_WIFI_STATIC = "setSettingsWifi";
-    public static final String SET_SETTINGS_IP_ADRESS_WIFI = "setSettingsIpAddressWifi";
+    public static final String SET_WIFI_SSID = "setWifiSsid";   // требует корректировки
+    //public static final String SET_SETTINGS_WIFI_STATIC = "setSettingsWifi";
+    public static final String SET_SETTINGS_IP_WIFI = "setSettingsIpWifi";
     public static final String SET_SETTINGS_MASK_WIFI = "setSettingsMaskWifi";
-    public static final String SET_SETTINGS_SERVER_DNS1 = "setSettingsDnsServerDns1";
-    //public static final String SET_SETTINGS_DHCP_WIFI = "setSettingsDhcpWifi";
+    public static final String SET_SETTINGS_DNS1_WIFI = "setSettingsDns1Wifi";
+    public static final String SET_SETTINGS_DHCP_WIFI = "setSettingsDhcpWifi";
 
 
 

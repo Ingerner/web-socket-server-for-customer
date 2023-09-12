@@ -93,40 +93,43 @@ public class SetHandlersConfig {
         return new SetMessageHandler<>(SetCommandMessage.class, deviceManager, personManager, SET_VOLUME_DOWN);
     }
 
-    @Bean MessageHandler setSettingsIpAddressMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+    @Bean MessageHandler setSettingsIpEthernetMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
         return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_IP_ETHERNET);
     }
 
-    @Bean MessageHandler setSettingsMaskMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+    @Bean MessageHandler setSettingsMaskEthernetMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
         return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_MASK_ETHERNET);
     }
 
-    @Bean MessageHandler setSettingsDnsServerMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+    @Bean MessageHandler setSettingsDns1EthernetMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
         return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_DNS1_ETHERNET);
     }
 
-    @Bean MessageHandler setSettingsSecurityMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_SECURITY);
+    @Bean MessageHandler setSettingsSecurityEthernetMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_SECURITY_ETHERNET);
     }
 
 //    @Bean MessageHandler setSettingsDhcpStaticMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
 //        return new SetMessageHandler<>(SetSettingsDhcpStaticMessage.class,deviceManager,personManager, SET_SETTINGS_DHCP_STATIC);
 //    }
 
-    @Bean MessageHandler setSettingsDhcpMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_DHCP);
+    @Bean MessageHandler setSettingsDhcpEthernetMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetCommandMessage.class,deviceManager,personManager, SET_SETTINGS_DHCP_ETHERNET);
     }
 
     @Bean MessageHandler setSettingStaticMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
         return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_STATIC);
     }
 
-//    @Bean MessageHandler setSettingsWifiMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-//        return new SetMessageHandler<>(SetStatusMessage.class,deviceManager,personManager, SET_SETTINGS_DHCP_WIFI);
-//    }
+    @Bean MessageHandler setSettingsDhcpWifiMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetCommandMessage.class,deviceManager,personManager, SET_SETTINGS_DHCP_WIFI);
+    }
 
-    @Bean MessageHandler setSettingsLanMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new SetMessageHandler<>(SetStatusMessage.class,deviceManager,personManager, SET_SETTINGS_LAN);
+    @Bean MessageHandler setSettingsLanEnableMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetStatusMessage.class,deviceManager,personManager, SET_SETTINGS_LAN_ENABLE);
+    }
+    @Bean MessageHandler setSettingsWifiEnableMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetStatusMessage.class,deviceManager,personManager, SET_SETTINGS_Wifi_ENABLE);
     }
 
     @Bean MessageHandler setResetMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
@@ -138,7 +141,7 @@ public class SetHandlersConfig {
     }
 
     @Bean MessageHandler setSettingsIpAddressWifiMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_IP_ADRESS_WIFI);
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_IP_WIFI);
     }
 
     @Bean MessageHandler setSettingsMaskWifiMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
@@ -146,6 +149,6 @@ public class SetHandlersConfig {
     }
 
     @Bean MessageHandler setSettingsDnsServerDns1MessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_SERVER_DNS1);
+        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_DNS1_WIFI);
     }
 }
