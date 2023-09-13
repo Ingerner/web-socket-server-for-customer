@@ -7,16 +7,7 @@ import ru.websocketserver.manager.PersonManager;
 import ru.websocketserver.service.handler.GetMessageHandler;
 import ru.websocketserver.service.handler.MessageHandler;
 
-import static ru.websocketserver.util.MessageId.GET_AUTO_SOURCE_SWITCH;
-import static ru.websocketserver.util.MessageId.GET_BACKLIGHT;
-import static ru.websocketserver.util.MessageId.GET_BRIGHTNESS;
-import static ru.websocketserver.util.MessageId.GET_PICTURE_MODE;
-import static ru.websocketserver.util.MessageId.GET_SATURATION;
-import static ru.websocketserver.util.MessageId.GET_SHARPNESS;
-import static ru.websocketserver.util.MessageId.GET_SLEEP;
-import static ru.websocketserver.util.MessageId.GET_SOURCE;
-import static ru.websocketserver.util.MessageId.GET_TIME_ALARM;
-import static ru.websocketserver.util.MessageId.GET_VOLUME;
+import static ru.websocketserver.util.MessageId.*;
 
 @Configuration
 public class GetHandlersConfig {
@@ -69,6 +60,11 @@ public class GetHandlersConfig {
     @Bean
     public MessageHandler getVolumeMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
         return new GetMessageHandler(personManager, deviceManager, GET_VOLUME);
+    }
+
+    @Bean
+    public MessageHandler getWifiMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new GetMessageHandler(personManager, deviceManager, GET_WIFI);
     }
 
 }

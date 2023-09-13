@@ -57,6 +57,7 @@ public final class MessageId {
     public static final String GET_SATURATION = "getSaturation";
     public static final String GET_SHARPNESS = "getSharpness";
     public static final String GET_VOLUME = "getVolume";
+    public static final String GET_WIFI = "getWifi";
 
     public static final String RPL_SOURCE = "rplSource";
     public static final String RPL_SLEEP = "rplSleep";
@@ -68,6 +69,7 @@ public final class MessageId {
     public static final String RPL_SATURATION = "rplSaturation";
     public static final String RPL_SHARPNESS = "rplSharpness";
     public static final String RPL_VOLUME = "rplVolume";
+    public static final String RPL_WIFI = "rplWifi";
 
     public static final String ERROR = "Error";
 
