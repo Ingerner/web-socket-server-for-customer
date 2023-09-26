@@ -1,6 +1,5 @@
 package ru.websocketserver.domain.message.common.rpl;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import ru.websocketserver.domain.message.outgoing.rpl.RplOutgoing;
@@ -13,14 +12,14 @@ import java.util.List;
 @Setter
 public class RplWifiIncomingMessage extends RplIncomingMessage {
 
-    private List<RplWifiResult> value;
+    private List<RplWifiResult> wifiData;
 
     @Override
     public RplOutgoing convertToOutgoingMessage(String panel) {
-        final List<RplWifiResultOutgoing> results = value.stream()
+        final List<RplWifiResultOutgoing> results = wifiData.stream()
                 .map(result -> RplWifiResultOutgoing.builder()
-                        .BSSID(result.BSSID)
-                        .SSID(result.SSID)
+                        .bssid(result.bssid)
+                        .ssid(result.ssid)
                         .capabilities(result.capabilities)
                         .build()
                 ).toList();
@@ -37,8 +36,8 @@ public class RplWifiIncomingMessage extends RplIncomingMessage {
     @Setter
     public static class RplWifiResult {
 
-        private String BSSID;
-        private String SSID;
+        private String bssid;
+        private String ssid;
         private String capabilities;
 
     }
