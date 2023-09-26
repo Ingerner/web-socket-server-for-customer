@@ -43,6 +43,7 @@ public final class MessageId {
     public static final String SET_SETTINGS_MASK_WIFI = "setSettingsMaskWifi";
     public static final String SET_SETTINGS_DNS1_WIFI = "setSettingsDns1Wifi";
     public static final String SET_SETTINGS_DHCP_WIFI = "setSettingsDhcpWifi";
+    public static final String SET_CONNECT_WIFI = "setConnectWifi";
 
 
 

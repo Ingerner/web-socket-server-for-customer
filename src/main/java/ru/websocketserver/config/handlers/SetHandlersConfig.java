@@ -151,4 +151,8 @@ public class SetHandlersConfig {
     @Bean MessageHandler setSettingsDnsServerDns1MessageHandler(PersonManager personManager, DeviceManager deviceManager) {
         return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_DNS1_WIFI);
     }
+
+    @Bean MessageHandler setConnectWifiMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetWifiPasswordMessage.class,deviceManager,personManager, SET_CONNECT_WIFI);
+    }
 }
