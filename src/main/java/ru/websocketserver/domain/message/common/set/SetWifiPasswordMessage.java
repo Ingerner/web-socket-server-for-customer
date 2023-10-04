@@ -14,4 +14,7 @@ public class SetWifiPasswordMessage extends SetMessage {
     private String ssid;
     @NotNull(message = PASSWORD_NOT_NULL)
     private String password;
+
+    @NotNull(message = CAPABILITIES_NOT_NULL)
+    private String capabilities;
 }

@@ -18,8 +18,8 @@ public class RplWifiOutgoingMessage extends RplOutgoing {
     @Builder
     public static class RplWifiResultOutgoing {
 
-        private String bssid;
-        private String ssid;
+        private String  BSSID;
+        private String SSID;
         private String capabilities;
 
     }

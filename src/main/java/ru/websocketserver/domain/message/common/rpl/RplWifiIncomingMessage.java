@@ -18,8 +18,8 @@ public class RplWifiIncomingMessage extends RplIncomingMessage {
     public RplOutgoing convertToOutgoingMessage(String panel) {
         final List<RplWifiResultOutgoing> results = wifiData.stream()
                 .map(result -> RplWifiResultOutgoing.builder()
-                        .bssid(result.bssid)
-                        .ssid(result.ssid)
+                        .BSSID(result.BSSID)
+                        .SSID(result.SSID)
                         .capabilities(result.capabilities)
                         .build()
                 ).toList();
@@ -36,8 +36,8 @@ public class RplWifiIncomingMessage extends RplIncomingMessage {
     @Setter
     public static class RplWifiResult {
 
-        private String bssid;
-        private String ssid;
+        private String BSSID;
+        private String SSID;
         private String capabilities;
 
     }
