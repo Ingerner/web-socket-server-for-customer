@@ -118,7 +118,7 @@ public class SetHandlersConfig {
     }
 
     @Bean MessageHandler setSettingStaticMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new SetMessageHandler<>(SetSettingsMessage.class,deviceManager,personManager, SET_SETTINGS_STATIC);
+        return new SetMessageHandler<>(SetNetworkStaticMessage.class,deviceManager,personManager, SET_SETTINGS_STATIC);
     }
 
     @Bean MessageHandler setSettingsDhcpWifiMessageHandler(PersonManager personManager, DeviceManager deviceManager) {

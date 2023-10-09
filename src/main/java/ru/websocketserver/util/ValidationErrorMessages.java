@@ -24,6 +24,9 @@ public final class ValidationErrorMessages {
     public static final String SSID_NOT_NULL = "Поле \"ssid\" не может быть пустым.";
     public static final String PASSWORD_NOT_NULL = "Поле \"password\" не может быть пустым.";
     public static final String CAPABILITIES_NOT_NULL = "Поле \"password\" не может быть пустым.";
+    public static final String IP_NOT_NULL = "Поле \"ip\" не может быть пустым.";
+    public static final String MASK_NOT_NULL = "Поле \"mask\" не может быть пустым.";
+    public static final String DNS1_NOT_NULL = "Поле \"password\" не может быть пустым.";
 
 
     public static final String I_AM_NOT_VALIDATE_CLIENT_ID_VALUE = "Неверный идетификатор клиента, укажите в параметре \"id\": 0 - для устройства, 1 - для пользователя.";

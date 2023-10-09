@@ -33,7 +33,7 @@ public final class MessageId {
     public static final String SET_SETTINGS_DNS1_ETHERNET = "setSettingsDns1Ethernet";
     public static final String SET_SETTINGS_SECURITY_ETHERNET = "setSettingsSecurityEthernet";
     public static final String SET_SETTINGS_DHCP_ETHERNET = "setSettingsDhcpEthernet";
-    public static final String SET_SETTINGS_STATIC = "setSettingsStatic";
+    public static final String SET_SETTINGS_STATIC = "setSettingsStaticEthernet";
     public static final String SET_SETTINGS_Wifi_ENABLE = "setSettingsWifiEnable";
     public static final String SET_SETTINGS_LAN_ENABLE = "setSettingsLanEnable";
     public static final String SET_RESET = "setReset";
