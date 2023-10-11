@@ -98,6 +98,7 @@ public class WebSocketHandler extends TextWebSocketHandler {
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) {
         personManager.deleteBySessionId(session.getId());
         deviceManager.deleteBySessionId(session.getId());
+
     }
 
     private void sendErrorResponse(WebSocketSession session, String message) {

@@ -26,6 +26,15 @@ public class Device implements Closeable {
     private Integer backlight;
     private Integer volume;
     private String workingHours;
+    private boolean lan;
+    private String ipEthernet;
+    private String dns1Ethernet;
+    private String dns2Ethernet;
+    private String gateWayEthernet;
+    private boolean wifi;
+    private String ipWifi;
+    private String dns1Wifi;
+    private String gateWayWifi;
     private LocalDateTime dateTime;
     private String process;
     private WebSocketSession session;

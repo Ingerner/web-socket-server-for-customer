@@ -37,7 +37,7 @@ public final class MessageId {
     public static final String SET_SETTINGS_Wifi_ENABLE = "setSettingsWifiEnable";
     public static final String SET_SETTINGS_LAN_ENABLE = "setSettingsLanEnable";
     public static final String SET_RESET = "setReset";
-    public static final String SET_WIFI_SSID = "setWifiSsid";   // требует корректировки
+    public static final String SET_WIFI_SSID = "setWifiSsid";   // дублируется надо удалить
     //public static final String SET_SETTINGS_WIFI_STATIC = "setSettingsWifi";
     public static final String SET_SETTINGS_IP_WIFI = "setSettingsIpWifi";
     public static final String SET_SETTINGS_MASK_WIFI = "setSettingsMaskWifi";

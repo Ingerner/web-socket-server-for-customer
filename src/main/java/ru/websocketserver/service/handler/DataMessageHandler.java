@@ -47,6 +47,15 @@ public class DataMessageHandler implements MessageHandler {
         device.setBacklight(incomingData.getBacklight());
         device.setVolume(incomingData.getVolume());
         device.setWorkingHours(incomingData.getWorkingHours());
+        device.setLan(incomingData.isLan());
+        device.setIpEthernet(incomingData.getIpEthernet());
+        device.setDns1Ethernet(incomingData.getDns1Ethernet());
+        device.setDns2Ethernet(incomingData.getDns2Ethernet());
+        device.setGateWayEthernet(incomingData.getGateWayEthernet());
+        device.setWifi(incomingData.isWifi());
+        device.setIpWifi(incomingData.getIpWifi());
+        device.setDns1Wifi(incomingData.getDns1Wifi());
+        device.setGateWayWifi(incomingData.getGateWayWifi());
     }
 
     private DataOutgoing getOutgoingMessage(Device device) {
@@ -56,6 +65,15 @@ public class DataMessageHandler implements MessageHandler {
                 .backlight(device.getBacklight())
                 .volume(device.getVolume())
                 .workingHours(device.getWorkingHours())
+                .lan(device.isLan())
+                .ipEthernet(device.getIpEthernet())
+                .dns1Ethernet(device.getDns1Ethernet())
+                .dns2Ethernet(device.getDns2Ethernet())
+                .gateWayEthernet(device.getGateWayEthernet())
+                .wifi(device.isWifi())
+                .ipWifi(device.getIpWifi())
+                .dns1Wifi(device.getDns1Wifi())
+                .gateWayWifi(device.getGateWayWifi())
                 .build();
     }
 
