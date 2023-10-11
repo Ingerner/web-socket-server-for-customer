@@ -153,6 +153,10 @@ public class SetHandlersConfig {
     }
 
     @Bean MessageHandler setConnectWifiMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
-        return new SetMessageHandler<>(SetWifiPasswordMessage.class,deviceManager,personManager, SET_CONNECT_WIFI);
+        return new SetMessageHandler<>(SetConnectWifiMessage.class,deviceManager,personManager, SET_CONNECT_WIFI);
+    }
+
+    @Bean MessageHandler setConnectWifiStringMessageHandler(PersonManager personManager, DeviceManager deviceManager) {
+        return new SetMessageHandler<>(SetConnectWifiStringMessage.class,deviceManager,personManager, SET_CONNECT_WIFI_STRING);
     }
 }
